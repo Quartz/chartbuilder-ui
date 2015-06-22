@@ -1,0 +1,281 @@
+@import "mixins"
+@import "colors"
+
+$border = 1px solid $color-border
+$border-active = 1px solid $color-border-active
+
+body
+	background-color $color-background
+	font-size 12px
+
+// Alert
+// --------------------------
+
+.cb-alert
+	margin 0
+	font-size 1.5em
+	border-radius 4px
+	line-height 1.5em
+	width 100%
+	color white
+	transition(background-color 0.1s linear)
+	&.cb-alert-default
+		background-color white
+		color $color-body-text
+	&.cb-alert-error
+		background-color $color-error
+	&.cb-alert-warning
+		background-color $color-warning
+	&.cb-alert-success
+		background-color $color-success
+	.cb-alert-text
+		padding 10px 10px
+
+// Button
+// --------------------------
+
+.cb-button
+	cursor pointer
+	border $border
+	background none
+	appearance none
+	outline 0
+	margin-top 0
+	vertical-align middle
+	font-size 1.4em
+	line-height 14px
+	height 55px
+	padding 4px 10px 0px 10px
+	color $color-body-text
+	transition(background-color 0.2s linear)
+	&.disabled, &:disabled
+		color $color-button-fill-disabled
+	&:hover
+		background $color-button-hover-fill
+		color $color-button-hover
+
+		&:disabled
+			background none
+			color $color-button-fill-disabled
+	&:focus
+		outline none
+
+
+// ButtonGroup
+// --------------------------
+
+.cb-button-group
+	display flex
+	flex 0 0 100%
+	flex-flow row wrap
+	width 100%
+	.cb-button
+		flex auto
+		background-color $color-button-group-fill
+		color $color-button-fill-disabled
+		margin-left: -1px
+		&:first-child
+			margin-left: 0px
+		&:focus
+			outline none
+		&:hover
+			color $color-body-text
+		&.active
+			background $color-button-fill
+			color $color-body-text
+			transition(background-color 0.2s linear)
+
+// ColorPicker
+// --------------------------
+
+.cb-colorpicker
+	position relative
+
+.cb-colorpicker-current
+	width 40px
+	height 40px
+	border-radius 50%
+	cursor pointer
+	position relative
+
+.cb-colorpicker-els
+	z-index 10
+	opacity 0
+	transition(0.2s opacity linear)
+	width 170px
+	position absolute
+	top -20px
+	left 50px
+	display flex
+	background-color #f9f9f9
+	&.active
+		transition(0.2s opacity linear)
+		display flex
+		opacity 1
+		flex-flow row wrap
+		border $border-active
+		.cb-colorpicker-el
+			cursor pointer
+			flex auto
+			margin 1px
+			width 40px
+			height 40px
+			border-radius 1px
+		&:after
+			right 100%
+			top 30%
+			border solid transparent
+			content " "
+			height 0
+			width 0
+			position absolute
+			pointer-events none
+			border-color rgba(204, 204, 204, 0)
+			border-right-color #ccc
+			border-width 8px
+			margin-top -8px
+
+// Dropdown
+// --------------------------
+
+.cb-dropdown
+	select
+		height 45px
+		margin 3px 0
+		font-size 1.4em
+		width 100%
+		box-sizing border-box
+		margin-bottom 1em
+		color $color-body-text
+		border $border
+		background-color #fff
+		outline: none
+
+// LabelledTangle
+// --------------------------
+
+.cb-labelled-tangle
+	vertical-align middle
+	line-height 28px
+	height 28px
+	font-size 1em
+	label, div
+		display inline-block
+
+	.cb-tangle
+		-webkit-appearance none
+		text-align center
+		cursor col-resize
+		font inherit
+		border $border
+		display inline
+		margin 0 0 0 10px
+		background-color white
+		width 50px
+		font-size 1.2em
+
+	label
+		font-size 1.4em
+
+	.tangle-input:focus
+		cursor text
+
+// TextArea
+// --------------------------
+
+.cb-text-area
+	color $color-body-text
+	border $border
+	width 100%
+	font-size 1.1em
+	padding 15px
+	margin 0
+	min-height 10em
+	resize: none
+	&:focus
+		border $border-active
+		outline none
+
+// TextInput
+// --------------------------
+
+.cb-text-input
+	display inline-block
+	position relative
+
+	label
+		height 55px
+		font-size 1.4em
+		top 21px
+		opacity 1
+		margin-left 10px
+		color $color-input-placeholder
+		position absolute
+		transform scale(1) translate3d(0, 0, 0)
+		transform-origin left top
+		transition(all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms)
+		z-index 1
+		&.focus
+			transform scale(0.8) translate3d(0, -11px, 0)
+
+	input
+		height 55px
+		font-size 1.4em
+		margin 3px 0
+		padding 21px 10px 0 10px
+		box-sizing border-box
+		border $border
+		&:focus
+			border $border-active
+			outline none
+
+// Toggle
+// --------------------------
+
+.cb-toggle
+	display block
+	position relative
+	cursor pointer
+	background-color transparent
+	border 0
+	padding 0
+	user-select(none)
+
+	.cb-toggle-container
+		display inline-block
+		width 45px
+		height 24px
+		padding 0
+		border-radius 30px
+		background-color $color-share-button
+		transition(all 0.2s ease)
+
+	.cb-toggle-switch
+		position absolute
+		top 1px
+		left 1px
+		width 22px
+		height 22px
+		border-radius 50%
+		background-color $color-background
+		box-sizing border-box
+		transition(all 0.2s ease)
+
+	&.toggled
+		.cb-toggle-container
+			background-color $color-toggle-toggled
+		.cb-toggle-switch
+			left 22px
+
+	input
+		cursor pointer
+		opacity 0
+		position absolute
+		right 0
+
+	label
+		cursor pointer
+		font-size 1.2em
+		line-height 24px
+		padding-left 10px
+		vertical-align top

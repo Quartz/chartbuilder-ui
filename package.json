@@ -1,0 +1,45 @@
+{
+  "name": "chartbuilder-ui",
+  "version": "0.0.3",
+  "description": "React components used in chartbuilder",
+  "main": "index.js",
+  "scripts": {
+    "watch-css": "stylus -w ./styl/example.styl --use ./node_modules/nib/lib/nib --out ./example/styles.css",
+    "build-css": "stylus ./styl/chartbuilder-ui.styl --out ./dist/styles.css",
+    "watch-js": "watchify -v -d example.js -o ./example/main.js",
+    "dev": "npm run watch-css & npm run watch-js",
+    "start": "http-server ./example",
+    "build": "npm run build-css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.com/quartzthings/chartbuilder-ui"
+  },
+  "browserify": {
+    "transform": [
+      "reactify"
+    ]
+  },
+  "keywords": [
+    "React",
+    "chartbuilder",
+    "ui"
+  ],
+  "author": "Quartz",
+  "license": "ISC",
+  "dependencies": {
+    "react-tangle": "^2.2.0"
+  },
+  "devDependencies": {
+    "browserify": "^8.1.3",
+    "http-server": "^0.8.0",
+    "nib": "^1.1.0",
+    "reactify": "^1.0.0",
+    "stylus": "^0.50.0",
+    "watchify": "^2.3.0"
+  },
+  "peerDependencies": {
+    "react": "^0.12.2"
+  }
+}

@@ -1,0 +1,56 @@
+// Styles only relevant to the example
+
+$font-sans = Calibri,Candara,Segoe,"Segoe UI",Optima,Arial,sans-serif
+$font-serif = Cambria,Georgia,serif
+$font-monospace = Consolas,monaco,monospace
+
+$chart-colors = \
+	#a50026 \
+	#fdae61 \
+	#d73027 \
+	#abd9e9 \
+	#f46d43 \
+	#74add1 \
+	#4575b4 \
+	#313695 \
+	#999 \
+	#666 \
+	#ccc
+
+for c, i in $chart-colors
+	.cb-colorpicker-color-{i}
+		background-color (c)
+
+	.cb-colorpicker-label-{i}
+		color (c)
+
+body
+	background-color $color-background
+	font-family $font-sans
+
+input
+	font-family $font-sans
+
+@import "chartbuilder-ui"
+
+.container
+	max-width 80%
+	margin 0 auto
+
+.examples
+	display inline-block
+	max-width 650px
+
+	.cb-text-area
+		font-family $font-monospace
+
+.current-state
+	max-width 40%
+	position fixed
+	background-color #f9f9f9
+	padding 16px
+	border 1px gray solid
+	border-radius 2px
+	font-family $font-monospace
+	margin-left 40px
+	display inline-block
