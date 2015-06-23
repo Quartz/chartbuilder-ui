@@ -10,6 +10,7 @@
     "dev": "npm run watch-css & npm run watch-js",
     "start": "http-server ./example",
     "build": "npm run build-css",
+    "gh-pages": "npm run build && git subtree push --prefix example origin gh-pages",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
