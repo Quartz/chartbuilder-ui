@@ -4,14 +4,14 @@
   "description": "React components used in chartbuilder",
   "main": "index.js",
   "scripts": {
-    "mv-example": "mkdir -p ./example && mv ./example-src/index.html ./example",
+    "example-html": "mkdir -p ./example && cp ./example-src/index.html ./example",
     "watch-css": "stylus -w ./styl/example.styl --use ./node_modules/nib/lib/nib --out ./example/styles.css",
     "build-css": "stylus ./styl/chartbuilder-ui.styl --out ./dist/styles.css",
     "watch-js": "watchify -v -d example.js -o ./example/main.js",
-    "dev": "npm run mv-example && npm run watch-css & npm run watch-js",
+    "dev": "npm run example-html && npm run watch-css & npm run watch-js",
     "start": "http-server ./example",
-    "build-example": "npm run mv-example && browserify example.js -o ./example/main.js && stylus ./styl/example.styl --use ./node_modules/nib/lib/nib --out ./example/styles.css",
-    "build": "npm run mv-example && npm run build-css && npm run build-js",
+    "build-example": "npm run example-html && browserify example.js -o ./example/main.js && stylus ./styl/example.styl --use ./node_modules/nib/lib/nib --out ./example/styles.css",
+    "build": "npm run example-html && npm run build-css && npm run build-js",
     "gh-pages": "npm run build-example && git subtree push --prefix example origin gh-pages",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
