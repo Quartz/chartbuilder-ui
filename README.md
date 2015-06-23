@@ -2,6 +2,11 @@
 
 React components that make up the UI for [Quartz Chartbuilder](https://github.com/Quartz/Chartbuilder).
 
+To use in your React project:
+
+1. npm install chartbuilder-ui
+2. `require` any of the components defined by Chartbuilder UI.
+
 Chartbuilder UI's components:
 
 * Alert
@@ -14,7 +19,8 @@ Chartbuilder UI's components:
 * LabelledTangle
 * Toggle
 
-Install modules:
+Developing locally:
+
 * Clone this repo and run `npm install`
 
 To view an example page and develop locally:
