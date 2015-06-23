@@ -1,3 +1,76 @@
+.cb-colorpicker-color-0 {
+  background-color: #a50026;
+}
+.cb-colorpicker-label-0 {
+  color: #a50026;
+}
+.cb-colorpicker-color-1 {
+  background-color: #fdae61;
+}
+.cb-colorpicker-label-1 {
+  color: #fdae61;
+}
+.cb-colorpicker-color-2 {
+  background-color: #d73027;
+}
+.cb-colorpicker-label-2 {
+  color: #d73027;
+}
+.cb-colorpicker-color-3 {
+  background-color: #abd9e9;
+}
+.cb-colorpicker-label-3 {
+  color: #abd9e9;
+}
+.cb-colorpicker-color-4 {
+  background-color: #f46d43;
+}
+.cb-colorpicker-label-4 {
+  color: #f46d43;
+}
+.cb-colorpicker-color-5 {
+  background-color: #74add1;
+}
+.cb-colorpicker-label-5 {
+  color: #74add1;
+}
+.cb-colorpicker-color-6 {
+  background-color: #4575b4;
+}
+.cb-colorpicker-label-6 {
+  color: #4575b4;
+}
+.cb-colorpicker-color-7 {
+  background-color: #313695;
+}
+.cb-colorpicker-label-7 {
+  color: #313695;
+}
+.cb-colorpicker-color-8 {
+  background-color: #999;
+}
+.cb-colorpicker-label-8 {
+  color: #999;
+}
+.cb-colorpicker-color-9 {
+  background-color: #666;
+}
+.cb-colorpicker-label-9 {
+  color: #666;
+}
+.cb-colorpicker-color-10 {
+  background-color: #ccc;
+}
+.cb-colorpicker-label-10 {
+  color: #ccc;
+}
+body {
+  background-color: $color-background;
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+}
+input {
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+}
 body {
   background-color: #f9f9f9;
   font-size: 12px;
@@ -301,4 +374,26 @@ body {
   line-height: 24px;
   padding-left: 10px;
   vertical-align: top;
+}
+.container {
+  max-width: 80%;
+  margin: 0 auto;
+}
+.examples {
+  display: inline-block;
+  max-width: 650px;
+}
+.examples .cb-text-area {
+  font-family: Consolas, monaco, monospace;
+}
+.current-state {
+  max-width: 40%;
+  position: fixed;
+  background-color: #f9f9f9;
+  padding: 16px;
+  border: 1px #808080 solid;
+  border-radius: 2px;
+  font-family: Consolas, monaco, monospace;
+  margin-left: 40px;
+  display: inline-block;
 }
