@@ -2,6 +2,8 @@
 
 React components that make up the UI for [Quartz Chartbuilder](https://github.com/Quartz/Chartbuilder).
 
+Here's a dead-simple [demo page](http://quartz.github.io/chartbuilder-ui/).
+
 To use in your React project:
 
 1. npm install chartbuilder-ui
