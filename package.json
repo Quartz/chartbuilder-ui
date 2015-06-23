@@ -7,9 +7,10 @@
     "watch-css": "stylus -w ./styl/example.styl --use ./node_modules/nib/lib/nib --out ./example/styles.css",
     "build-css": "stylus ./styl/chartbuilder-ui.styl --out ./dist/styles.css",
     "watch-js": "watchify -v -d example.js -o ./example/main.js",
+    "build-js": "browserify -v example.js -o ./example/main.js",
     "dev": "npm run watch-css & npm run watch-js",
     "start": "http-server ./example",
-    "build": "npm run build-css",
+    "build": "npm run build-css && npm run build-js",
     "gh-pages": "npm run build && git subtree push --prefix example origin gh-pages",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
