@@ -1,6 +1,6 @@
 {
   "name": "chartbuilder-ui",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "React components used in chartbuilder",
   "main": "index.js",
   "scripts": {
@@ -13,7 +13,6 @@
     "build-example": "npm run example-html && browserify example.js -o ./example/main.js && stylus ./styl/example.styl --use ./node_modules/nib/lib/nib --out ./example/styles.css",
     "build": "npm run example-html && npm run build-css && npm run build-js",
     "gh-pages": "npm run build-example && git subtree push --prefix example origin gh-pages",
-    "publish": "npm version patch && npm publish && git push origin master",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
