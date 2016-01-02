@@ -8,12 +8,12 @@
  */
 
 var React = require("react");
-require("react/addons");
 var PropTypes = React.PropTypes;
+var PureRenderMixin = require("react-addons-pure-render-mixin");
 
 var Toggle = React.createClass({
 
-	mixins: [ React.addons.PureRenderMixin ],
+	mixins: [ PureRenderMixin ],
 
 	propTypes: {
 		className: PropTypes.string,

@@ -1,8 +1,7 @@
 // Button group with an active state based on currently selected button
 
 var React = require("react");
-require("react/addons");
-var cx = React.addons.classSet;
+var cx = require("classnames");
 var PropTypes = React.PropTypes;
 
 var Button = require('./Button.jsx');

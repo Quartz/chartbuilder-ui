@@ -7,9 +7,9 @@
  * >
  */
 
-var React = require("react/addons");
-var PureRenderMixin = React.addons.PureRenderMixin;
-var cx = React.addons.classSet;
+var React = require("react");
+var PureRenderMixin = require("react-addons-pure-render-mixin")
+var cx = require("classnames");
 var PropTypes = React.PropTypes;
 
 var ColorPicker = React.createClass({

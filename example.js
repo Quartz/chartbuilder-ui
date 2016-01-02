@@ -1,11 +1,11 @@
 var React = require("react");
-require("react/addons");
-global.p = React.addons.Perf;
+var ReactDOM = require("react-dom")
+global.p = require("react-addons-perf");
 
 var container = document.querySelector(".chartbuilder-ui");
 var Example = require("./Example.jsx");
 
 document.addEventListener("DOMContentLoaded", function() {
 	// Render parent chartbuilder component
-	React.render(<Example />, container);
+	ReactDOM.render(<Example />, container);
 });
