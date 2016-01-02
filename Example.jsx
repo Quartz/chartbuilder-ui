@@ -149,6 +149,9 @@ var ExampleParent = React.createClass({
 						alertText={inputAlert.alertText}
 						boldText={inputAlert.boldText}
 					/>
+
+					{/* 
+					This doesn't work with react 0.14.5
 					<h2>Labelled tangle</h2>
 					<LabelledTangle
 						className="cb-labelled-tangle"
@@ -159,6 +162,8 @@ var ExampleParent = React.createClass({
 						onInput={this._handleEvent.bind(null, "tangleVal")}
 						value={this.state.tangleVal}
 					/>
+					*/} 
+
 					<h2>Toggle</h2>
 					<Toggle
 						onToggle={this._handleEvent.bind(null, "toggle1")}
