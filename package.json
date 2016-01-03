@@ -43,7 +43,7 @@
     "react-addons-perf": "^0.14.5",
     "react-addons-pure-render-mixin": "^0.14.5",
     "react-dom": "^0.14.5",
-    "react-tangle": "^2.2.0"
+    "react-tangle": "https://github.com/yanofsky/react-tangle.git#master"
   },
   "devDependencies": {
     "browserify": "^8.1.3",
