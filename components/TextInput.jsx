@@ -8,6 +8,7 @@
  */
 
 var React = require("react");
+var ReactDOM = require("react-dom");
 var PropTypes = React.PropTypes;
 
 var TextInput = React.createClass({
@@ -59,11 +60,11 @@ var TextInput = React.createClass({
 	},
 
 	blur: function() {
-		if (this.isMounted()) React.findDOMNode('input').blur();
+		if (this.isMounted()) ReactDOM.findDOMNode('input').blur();
 	},
 
 	focus: function() {
-		if (this.isMounted()) React.findDOMNode('input').focus();
+		if (this.isMounted()) ReactDOM.findDOMNode('input').focus();
 	},
 
 	_handleInput: function(e) {
