@@ -18,13 +18,18 @@ var ColorPicker = React.createClass({
 		index: PropTypes.number,
 		onChange: PropTypes.func.isRequired,
 		className: PropTypes.string,
-		numColors: PropTypes.number.isRequired
+		numColors: PropTypes.number.isRequired,
+		labelText: PropTypes.string
 	},
 
 	mixins: [ PureRenderMixin ],
 
 	getInitialState: function() {
 		return { active: false };
+	},
+
+	getDefaultProps: function() {
+		return { labelText: 'Color' };
 	},
 
 	_togglePicker: function(e) {
@@ -44,6 +49,7 @@ var ColorPicker = React.createClass({
 	render: function() {
 		var self = this;
 		var colorPickerEls = [];
+		var label = ( this.props.labelText && this.props.labelText !== '' ) ? <label>{this.props.labelText}</label> : null;
 
 		for (var i = 0, l = this.props.numColors; i < l; i++) {
 			colorPickerEls.push(
@@ -62,6 +68,7 @@ var ColorPicker = React.createClass({
 
 		return (
 			<div className="cb-colorpicker">
+				{label}
 				<div
 					className={"cb-colorpicker-current cb-colorpicker-color-" + this.props.colorIndex}
 					onClick={this._togglePicker}
