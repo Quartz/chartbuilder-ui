@@ -66,8 +66,10 @@ var ColorPicker = React.createClass({
 			"active": this.state.active
 		});
 
+		var activeClass = cx({ "active": this.state.active });
+
 		return (
-			<div className="cb-colorpicker">
+			<div className={"cb-colorpicker " + activeClass}>
 				{label}
 				<div
 					className={"cb-colorpicker-current cb-colorpicker-color-" + this.props.colorIndex}
