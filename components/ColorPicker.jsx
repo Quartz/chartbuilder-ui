@@ -46,14 +46,17 @@ var ColorPicker = React.createClass({
 	},
 
 	render: function() {
-		var self = this;
 		var colorPickerEls = [];
 		var label = null;
 		var labelClass = null;
-		
-		if( this.props.labelText && this.props.labelText !== '' ) {
-			labelClass = (this.props.labelClass && this.props.labelClass !== '') ? this.props.labelClass : '';
-			label = <label onClick={this._togglePicker} className={labelClass}>{this.props.labelText}</label>;
+
+		if ( this.props.labelText && this.props.labelText !== "" ) {
+			labelClass = [ "cb-colorpicker-label", this.props.labelClass ].join(" ");
+			label = (
+				<label onClick={this._togglePicker} className={labelClass}>
+					{this.props.labelText}
+				</label>
+			);
 		}
 
 		for (var i = 0, l = this.props.numColors; i < l; i++) {

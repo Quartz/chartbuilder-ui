@@ -107,6 +107,7 @@ var ExampleParent = React.createClass({
 						onChange={this._handleEvent.bind(null, "colorIndex")}
 						numColors={exampleData.numColors}
 						colorIndex={this.state.colorIndex}
+						labelText={"Color"}
 					/>
 					<h2>Text area</h2>
 					<TextArea
