@@ -4,6 +4,8 @@
  *	index=number
  *	className=string
  *	numColors=required number of colors to include (handled in css)
+ *	labelText=string
+ *	labelClass=string
  * >
  */
 
@@ -19,7 +21,8 @@ var ColorPicker = React.createClass({
 		onChange: PropTypes.func.isRequired,
 		className: PropTypes.string,
 		numColors: PropTypes.number.isRequired,
-		labelText: PropTypes.string
+		labelText: PropTypes.string,
+		labelClass: PropTypes.string
 	},
 
 	mixins: [ PureRenderMixin ],
@@ -45,7 +48,13 @@ var ColorPicker = React.createClass({
 	render: function() {
 		var self = this;
 		var colorPickerEls = [];
-		var label = ( this.props.labelText && this.props.labelText !== '' ) ? <label>{this.props.labelText}</label> : null;
+		var label = null;
+		var labelClass = null;
+		
+		if( this.props.labelText && this.props.labelText !== '' ) {
+			labelClass = (this.props.labelClass && this.props.labelClass !== '') ? this.props.labelClass : '';
+			label = <label onClick={this._togglePicker} className={labelClass}>{this.props.labelText}</label>;
+		}
 
 		for (var i = 0, l = this.props.numColors; i < l; i++) {
 			colorPickerEls.push(
