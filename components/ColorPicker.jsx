@@ -28,10 +28,6 @@ var ColorPicker = React.createClass({
 		return { active: false };
 	},
 
-	getDefaultProps: function() {
-		return { labelText: 'Color' };
-	},
-
 	_togglePicker: function(e) {
 		if (this.state.active) {
 			e.stopPropagation();
