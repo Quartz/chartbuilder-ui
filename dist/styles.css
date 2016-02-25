@@ -4,32 +4,34 @@ body {
 }
 .cb-alert {
   margin: 0;
-  font-size: 1.5em;
-  border-radius: 4px;
-  line-height: 1.5em;
-  width: 100%;
-  color: #fff;
   -webkit-transition: background-color 0.1s linear;
   -moz-transition: background-color 0.1s linear;
   -ms-transition: background-color 0.1s linear;
   -o-transition: background-color 0.1s linear;
   transition: background-color 0.1s linear;
 }
-.cb-alert.cb-alert-default {
-  background-color: #fff;
-  color: #333;
+.cb-alert.default,
+.cb-alert.error {
+  background-color: #e55151;
 }
-.cb-alert.cb-alert-error {
-  background-color: #c25250;
-}
-.cb-alert.cb-alert-warning {
-  background-color: #c5b52b;
-}
-.cb-alert.cb-alert-success {
-  background-color: #1e866c;
+.cb-alert.warning {
+  background-color: #f59b60;
 }
 .cb-alert .cb-alert-text {
-  padding: 10px 10px;
+  font-size: 1em;
+  line-height: 1.25em;
+  width: 100%;
+  color: #fff;
+  word-wrap: break-word;
+  margin: 0;
+  padding: 4px 5px 2px 5px;
+  box-sizing: border-box;
+}
+.cb-alert-group .cb-alert {
+  margin-bottom: 5px;
+}
+.cb-alert-group .cb-alert:last-child {
+  margin-bottom: 0;
 }
 .cb-button {
   cursor: pointer;
