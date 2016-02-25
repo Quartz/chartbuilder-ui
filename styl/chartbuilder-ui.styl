@@ -1,5 +1,7 @@
 @import "mixins"
 @import "colors"
+@import "fonts"
+@import "icons"
 
 $border = 1px solid $color-border
 $border-active = 1px solid $color-border-active
@@ -13,23 +15,52 @@ body
 
 .cb-alert
 	margin 0
-	font-size 1.5em
-	border-radius 4px
-	line-height 1.5em
-	width 100%
-	color white
 	transition(background-color 0.1s linear)
-	&.cb-alert-default
-		background-color white
-		color $color-body-text
-	&.cb-alert-error
+	position: relative
+
+	&.default
+	&.error
 		background-color $color-error
-	&.cb-alert-warning
+	&.warning
 		background-color $color-warning
-	&.cb-alert-success
-		background-color $color-success
+
 	.cb-alert-text
-		padding 10px 10px
+		font-size 1em
+		line-height 1.25em
+		width 100%
+		color white
+		word-wrap: break-word
+		margin: 0
+		font-family: 'AdelleSansBold'
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		padding: 4px 5px 2px 29px
+		box-sizing: border-box
+
+	.cb-alert-icon
+		font-family: 'atlas-icons'
+		position: absolute;
+		top: 0;
+		left: 0;
+		border-right: 1px solid rgba(0,0,0,0.10);
+		width: 23px
+		height: 100%
+
+		&:before
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			font-size: 12px
+			color: white
+
+		&.default:before
+		&.error:before
+			content: "\e901";
+
+		&.warning:before
+			content: "\e900";
+
 
 // Button
 // --------------------------

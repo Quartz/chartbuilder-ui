@@ -30,23 +30,15 @@ var exampleData = {
 	inputAlerts: {
 		"empty": {
 			alertText: "Enter some text above.",
-			boldText: "Hello!",
 			alertType: "default"
 		},
 		"too_short": {
 			alertText: "Your input is too short.",
-			boldText: "Error!",
 			alertType: "error"
 		},
 		"too_short_warn": {
 			alertText: "Your input is long enough, but still unsafe.",
-			boldText: "Warning!",
 			alertType: "warning"
-		},
-		"success": {
-			alertText: "Looks good.",
-			boldText: "Success!",
-			alertType: "success"
 		}
 	},
 	numColors: 11
@@ -82,8 +74,6 @@ var ExampleParent = React.createClass({
 			return exampleData.inputAlerts.too_short;
 		} else if (input.length >=5 && input.length < 10) {
 			return exampleData.inputAlerts.too_short_warn;
-		} else if (input.length >= 10) {
-			return exampleData.inputAlerts.success;
 		}
 	},
 
@@ -148,7 +138,6 @@ var ExampleParent = React.createClass({
 					<Alert
 						alertType={inputAlert.alertType}
 						alertText={inputAlert.alertText}
-						boldText={inputAlert.boldText}
 					/>
 					<h2>Labelled tangle</h2>
 					<LabelledTangle
