@@ -1,5 +1,6 @@
 module.exports = {
   Alert: require("./components/Alert.jsx"),
+  AlertGroup: require("./components/AlertGroup.jsx"),
   Button: require("./components/Button.jsx"),
   ButtonGroup: require("./components/ButtonGroup.jsx"),
   ColorPicker: require("./components/ColorPicker.jsx"),
