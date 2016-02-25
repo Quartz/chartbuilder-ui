@@ -84,11 +84,11 @@ var ExampleParent = React.createClass({
 
 	_validateInput: function() {
 		var input = this.state.textInput;
-		if (input.length === 0) {
+		if ( input.length === 0 ) {
 			return exampleData.inputAlerts.empty;
-		} else if (input.length < 5) {
+		} else if ( input.length < 5 ) {
 			return exampleData.inputAlerts.too_short;
-		} else if (input.length >=5 && input.length < 10) {
+		} else if ( input.length >=5 ) {
 			return exampleData.inputAlerts.too_short_warn;
 		}
 	},
