@@ -20,7 +20,7 @@ var Alert = React.createClass({
 
 	getDefaultProps: function() {
 		return {
-			altertType: "default",
+			alertType: "default",
 			alertText: "Hello!"
 		};
 	},
