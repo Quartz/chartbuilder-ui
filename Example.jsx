@@ -57,7 +57,30 @@ var exampleData = {
 	},
 	{
 
-	}]
+	}],
+	alertGroupError: [{
+		alertText: "Some error.",
+		alertType: "error"
+	}],
+
+	alertGroupWarning: [{
+		alertText: "Some warning.",
+		alertType: "warning"
+	}],
+	alertGroupBunch: [{
+		alertText: "Some warning.",
+		alertType: "warning"
+	},
+	{
+		alertText: "Some error.",
+		alertType: "error"
+	},
+	{
+		alertText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ullamcorper sed odio a lacinia. Praesent at convallis dui. Vestibulum sagittis nulla ligula, a fermentum nisl auctor sit amet. Duis odio dui, dictum at nisi vitae, molestie maximus leo. Nulla facilisi. Cras eu urna nisl. Sed tristique pretium rutrum.",
+		alertType: "error"
+	}],
+	alertGroupEmpty: []
+
 };
 
 var ExampleParent = React.createClass({
@@ -93,6 +116,32 @@ var ExampleParent = React.createClass({
 		}
 	},
 
+	_validateInputGroup: function() {
+		var input = this.state.textInput;
+		var alertGroup;
+
+		switch(input) {
+			case '':
+				alertGroup = exampleData.alertGroupEmpty;
+				break;
+			case 'error':
+				alertGroup = exampleData.alertGroupError;
+				break;
+			case 'warning':
+				alertGroup = exampleData.alertGroupWarning;
+				break;
+			case 'bunch':
+				alertGroup = exampleData.alertGroupBunch;
+				break;
+			default:
+				alertGroup = exampleData.alertGroupEmpty;
+				break;
+		}
+
+		return alertGroup;
+
+	},
+
 	_toggleButton: function() {
 		newButtonState = !this.state.buttonActive;
 		this._handleEvent("buttonActive", newButtonState);
@@ -103,6 +152,7 @@ var ExampleParent = React.createClass({
 		var currentState = JSON.stringify(this.state, null, 2);
 		var inputAlert = this._validateInput();
 		var buttonOn = (this.state.buttonActive) ? "on" : "off";
+		var inputAlertGroup = this._validateInputGroup();
 		return (
 			<div className="ui-container">
 				<div className="examples">
@@ -156,10 +206,9 @@ var ExampleParent = React.createClass({
 						alertText={inputAlert.alertText}
 					/>
 
-
 					<h2>AlertGroup</h2>
 					<AlertGroup
-						alerts={exampleData.alerts}
+						alerts={inputAlertGroup}
 					/>
 
 					<h2>Labelled tangle</h2>
