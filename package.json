@@ -10,7 +10,7 @@
     "watch-js": "watchify -v -d example.js -o ./example/main.js",
     "dev": "npm run example-html && npm run watch-css & npm run watch-js",
     "start": "http-server ./example",
-    "build-example": "npm run example-html && browserify example.js -o ./example/main.js && stylus ./styl/example.styl --use ./node_modules/nib/lib/nib --out ./example/styles.css",
+    "build-example": "npm run example-html && browserify example.js -o ./example/main.js && stylus ./styl/example.styl --use ./node_modules/nib/lib/nib --out ./example/styles.css && rm -rf ./example/fonts && cp -R ./fonts ./example/fonts",
     "build": "npm run example-html && npm run build-css",
     "gh-pages": "npm run build-example && git subtree push --prefix example origin gh-pages",
     "test": "echo \"Error: no test specified\" && exit 1"

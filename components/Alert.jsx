@@ -1,9 +1,8 @@
 /*
  * <Alert
  *	className=string
- *	alertType=required string ["default", "success", "warning", "error"]
+ *	alertType=required string ["default", "warning", "error"]
  *	alertText=required string
- *	boldText=string
  * >
  */
 
@@ -16,33 +15,26 @@ var Alert = React.createClass({
 		alertType: PropTypes.string.isRequired,
 		alertText: PropTypes.string.isRequired,
 		className: PropTypes.string,
-		boldText: PropTypes.string,
 		onClick: PropTypes.func
 	},
 
 	getDefaultProps: function() {
 		return {
 			altertType: "default",
-			boldText: "",
 			alertText: "Hello!"
 		};
 	},
 
 	render: function() {
-		var alertTypeClass = "cb-alert-" + this.props.alertType;
-		var boldText;
-		if (this.props.boldText) {
-			boldText = <strong>{this.props.boldText + " "}</strong>;
-		}
 
 		if( typeof(this.props.onClick) === 'undefined' ){
 			this.props.onClick = null;
 		}
 
 		return (
-			<div className={["cb-alert", alertTypeClass].join(" ")} onClick={this.props.onClick} >
+			<div className={["cb-alert", this.props.alertType].join(" ")} onClick={this.props.onClick} >
+				<span className={["cb-alert-icon", this.props.alertType].join(" ")}></span>
 				<p className="cb-alert-text">
-					{boldText}
 					{this.props.alertText}
 				</p>
 			</div>
