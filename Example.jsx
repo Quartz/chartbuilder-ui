@@ -3,6 +3,7 @@
 var React = require("react");
 
 var Alert = require("./components/Alert.jsx");
+var AlertGroup = require("./components/AlertGroup.jsx");
 var Button = require("./components/Button.jsx");
 var ButtonGroup = require("./components/ButtonGroup.jsx");
 var ColorPicker = require("./components/ColorPicker.jsx");
@@ -41,7 +42,22 @@ var exampleData = {
 			alertType: "warning"
 		}
 	},
-	numColors: 11
+	numColors: 11,
+	alerts:[{
+		alertText: "Some warning.",
+		alertType: "warning"
+	},
+	{
+		alertText: "Some error.",
+		alertType: "error"
+	},
+	{
+		alertText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ullamcorper sed odio a lacinia. Praesent at convallis dui. Vestibulum sagittis nulla ligula, a fermentum nisl auctor sit amet. Duis odio dui, dictum at nisi vitae, molestie maximus leo. Nulla facilisi. Cras eu urna nisl. Sed tristique pretium rutrum.",
+		alertType: "error"
+	},
+	{
+
+	}]
 };
 
 var ExampleParent = React.createClass({
@@ -139,6 +155,13 @@ var ExampleParent = React.createClass({
 						alertType={inputAlert.alertType}
 						alertText={inputAlert.alertText}
 					/>
+
+
+					<h2>AlertGroup</h2>
+					<AlertGroup
+						alerts={exampleData.alerts}
+					/>
+
 					<h2>Labelled tangle</h2>
 					<LabelledTangle
 						className="cb-labelled-tangle"
