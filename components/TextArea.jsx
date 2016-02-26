@@ -7,6 +7,7 @@ var TextArea = React.createClass({
 	propTypes: {
 		onChange: PropTypes.func,
 		onFocus: PropTypes.func,
+		onBlur: PropTypes.func,
 		className: PropTypes.string,
 		defaultValue: PropTypes.string,
 		placeholder: PropTypes.string,
@@ -29,6 +30,7 @@ var TextArea = React.createClass({
 			<textarea
 				onChange={this._handleInput}
 				onFocus={this.props.onFocus}
+				onBlur={this.props.onBlur}
 				value={this.props.value}
 				defaultValue={this.props.defaultValue}
 				placeholder={this.props.placeholder}
