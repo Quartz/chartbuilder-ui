@@ -9,23 +9,23 @@ body {
   -ms-transition: background-color 0.1s linear;
   -o-transition: background-color 0.1s linear;
   transition: background-color 0.1s linear;
-}
-.cb-alert.default,
-.cb-alert.error {
-  background-color: #e55151;
-}
-.cb-alert.warning {
-  background-color: #f59b60;
+  display: table;
 }
 .cb-alert .cb-alert-text {
   font-size: 1em;
   line-height: 1.25em;
-  width: 100%;
   color: #fff;
   word-wrap: break-word;
   margin: 0;
   padding: 4px 5px 2px 5px;
   box-sizing: border-box;
+}
+.cb-alert.error .cb-alert-text,
+.cb-alert.default .cb-alert-text {
+  background-color: #e55151;
+}
+.cb-alert.warning .cb-alert-text {
+  background-color: #f59b60;
 }
 .cb-alert-group .cb-alert {
   margin-bottom: 5px;
