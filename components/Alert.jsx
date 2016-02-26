@@ -1,7 +1,7 @@
 /*
  * <Alert
  *	className=string
- *	alertType=required string ["default", "warning", "error"]
+ *	alertType=required string ["default", "warning", "error", "success"]
  *	alertText=required string
  * >
  */

@@ -14,22 +14,26 @@ body
 .cb-alert
 	margin 0
 	transition(background-color 0.1s linear)
-
-	&.default
-	&.error
-		background-color $color-error
-	&.warning
-		background-color $color-warning
+	overflow: hidden;
 
 	.cb-alert-text
 		font-size 1em
 		line-height 1.25em
-		width 100%
+		float: left
 		color white
 		word-wrap: break-word
 		margin: 0
 		padding: 4px 5px 2px 5px
 		box-sizing: border-box
+
+	&.error
+	&.default
+		.cb-alert-text
+			background-color $color-error
+
+	&.warning
+		.cb-alert-text
+			background-color $color-warning
 
 // AlertGroup
 // --------------------------

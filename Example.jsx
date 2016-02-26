@@ -43,21 +43,6 @@ var exampleData = {
 		}
 	},
 	numColors: 11,
-	alerts:[{
-		alertText: "Some warning.",
-		alertType: "warning"
-	},
-	{
-		alertText: "Some error.",
-		alertType: "error"
-	},
-	{
-		alertText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ullamcorper sed odio a lacinia. Praesent at convallis dui. Vestibulum sagittis nulla ligula, a fermentum nisl auctor sit amet. Duis odio dui, dictum at nisi vitae, molestie maximus leo. Nulla facilisi. Cras eu urna nisl. Sed tristique pretium rutrum.",
-		alertType: "error"
-	},
-	{
-
-	}],
 	alertGroupError: [{
 		alertText: "Some error.",
 		alertType: "error"
@@ -67,6 +52,7 @@ var exampleData = {
 		alertText: "Some warning.",
 		alertType: "warning"
 	}],
+
 	alertGroupBunch: [{
 		alertText: "Some warning.",
 		alertType: "warning"
