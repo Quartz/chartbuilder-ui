@@ -18,13 +18,6 @@ var Alert = React.createClass({
 		onClick: PropTypes.func
 	},
 
-	getDefaultProps: function() {
-		return {
-			alertType: "default",
-			alertText: "Hello!"
-		};
-	},
-
 	render: function() {
 
 		if( typeof(this.props.onClick) === 'undefined' ){
