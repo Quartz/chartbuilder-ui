@@ -18,6 +18,13 @@ var Alert = React.createClass({
 		onClick: PropTypes.func
 	},
 
+	getDefaultProps: function() {
+		return {
+			alertType: "default",
+			alertText: "Hello!"
+		};
+	},
+
 	render: function() {
 
 		if( typeof(this.props.onClick) === 'undefined' ){
@@ -25,8 +32,8 @@ var Alert = React.createClass({
 		}
 
 		return (
-			<div className={["cb-alert", this.props.alertType].join(" ")} onClick={this.props.onClick} >
-				<span className={["cb-alert-icon", this.props.alertType].join(" ")}></span>
+			<div className={["cb-alert", this.props.alertType, this.props.className].join(" ").trim()} onClick={this.props.onClick} >
+				<span className="cb-alert-icon"></span>
 				<p className="cb-alert-text">
 					{this.props.alertText}
 				</p>
