@@ -30,8 +30,8 @@ var exampleData = {
 	],
 	inputAlerts: {
 		"empty": {
-			alertText: "Enter some text above.",
-			alertType: "default"
+			alertText: "",
+			alertType: ""
 		},
 		"too_short": {
 			alertText: "Your input is too short.",
@@ -191,6 +191,7 @@ var ExampleParent = React.createClass({
 						alertType={inputAlert.alertType}
 						alertText={inputAlert.alertText}
 					/>
+
 
 					<h2>AlertGroup</h2>
 					<AlertGroup

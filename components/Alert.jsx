@@ -32,8 +32,8 @@ var Alert = React.createClass({
 		}
 
 		return (
-			<div className={["cb-alert", this.props.alertType].join(" ")} onClick={this.props.onClick} >
-				<span className={["cb-alert-icon", this.props.alertType].join(" ")}></span>
+			<div className={["cb-alert", this.props.alertType, this.props.className].join(" ").trim()} onClick={this.props.onClick} >
+				<span className="cb-alert-icon"></span>
 				<p className="cb-alert-text">
 					{this.props.alertText}
 				</p>
