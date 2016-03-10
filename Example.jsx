@@ -30,40 +30,40 @@ var exampleData = {
 	],
 	inputAlerts: {
 		"empty": {
-			alertText: "Enter some text above.",
-			alertType: "default"
+			text: "Enter some text above.",
+			type: "default"
 		},
 		"too_short": {
-			alertText: "Your input is too short.",
-			alertType: "error"
+			text: "Your input is too short.",
+			type: "error"
 		},
 		"too_short_warn": {
-			alertText: "Your input is long enough, but still unsafe.",
-			alertType: "warning"
+			text: "Your input is long enough, but still unsafe.",
+			type: "warning"
 		}
 	},
 	numColors: 11,
 	alertGroupError: [{
-		alertText: "Some error.",
-		alertType: "error"
+		text: "Some error.",
+		type: "error"
 	}],
 
 	alertGroupWarning: [{
-		alertText: "Some warning.",
-		alertType: "warning"
+		text: "Some warning.",
+		type: "warning"
 	}],
 
 	alertGroupBunch: [{
-		alertText: "Some warning.",
-		alertType: "warning"
+		text: "Some warning.",
+		type: "warning"
 	},
 	{
-		alertText: "Some error.",
-		alertType: "error"
+		text: "Some error.",
+		type: "error"
 	},
 	{
-		alertText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ullamcorper sed odio a lacinia. Praesent at convallis dui. Vestibulum sagittis nulla ligula, a fermentum nisl auctor sit amet. Duis odio dui, dictum at nisi vitae, molestie maximus leo. Nulla facilisi. Cras eu urna nisl. Sed tristique pretium rutrum.",
-		alertType: "error"
+		text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ullamcorper sed odio a lacinia. Praesent at convallis dui. Vestibulum sagittis nulla ligula, a fermentum nisl auctor sit amet. Duis odio dui, dictum at nisi vitae, molestie maximus leo. Nulla facilisi. Cras eu urna nisl. Sed tristique pretium rutrum.",
+		type: "error"
 	}],
 	alertGroupEmpty: []
 
@@ -188,8 +188,8 @@ var ExampleParent = React.createClass({
 					/>
 					<h2>Alert</h2>
 					<Alert
-						alertType={inputAlert.alertType}
-						alertText={inputAlert.alertText}
+						type={inputAlert.type}
+						text={inputAlert.text}
 					/>
 
 					<h2>AlertGroup</h2>

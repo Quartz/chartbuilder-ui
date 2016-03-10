@@ -1,8 +1,8 @@
 /*
  * <Alert
  *	className=string
- *	alertType=required string ["default", "warning", "error", "success"]
- *	alertText=required string
+ *	type=required string ["default", "warning", "error", "success"]
+ *	text=required string
  * >
  */
 
@@ -12,16 +12,16 @@ var PropTypes = React.PropTypes;
 var Alert = React.createClass({
 
 	propTypes: {
-		alertType: PropTypes.string.isRequired,
-		alertText: PropTypes.string.isRequired,
+		type: PropTypes.string.isRequired,
+		text: PropTypes.string.isRequired,
 		className: PropTypes.string,
 		onClick: PropTypes.func
 	},
 
 	getDefaultProps: function() {
 		return {
-			alertType: "default",
-			alertText: "Hello!"
+			type: "default",
+			text: "Hello!"
 		};
 	},
 
@@ -32,10 +32,10 @@ var Alert = React.createClass({
 		}
 
 		return (
-			<div className={["cb-alert", this.props.alertType].join(" ")} onClick={this.props.onClick} >
-				<span className={["cb-alert-icon", this.props.alertType].join(" ")}></span>
+			<div className={["cb-alert", this.props.type].join(" ")} onClick={this.props.onClick} >
+				<span className={["cb-alert-icon", this.props.type].join(" ")}></span>
 				<p className="cb-alert-text">
-					{this.props.alertText}
+					{this.props.text}
 				</p>
 			</div>
 		);

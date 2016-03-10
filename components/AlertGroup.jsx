@@ -1,7 +1,7 @@
 /*
  * <AlertGroup
  *	className=string
- *	alerts = array [{alertType, alertText}]
+ *	alerts = array [{type, text}]
  *
  * >
  */
@@ -15,8 +15,8 @@ var AlertGroup = React.createClass({
 
 	propTypes: {
 		alerts: PropTypes.arrayOf(React.PropTypes.shape({
-			alertType: PropTypes.string,
-			alertText: PropTypes.string
+			type: PropTypes.string,
+			text: PropTypes.string
 		})).isRequired,
 		className: PropTypes.string
 	},
@@ -27,8 +27,8 @@ var AlertGroup = React.createClass({
 			return (
 					<Alert
 						key={i}
-						alertType={alert.alertType}
-						alertText={alert.alertText}
+						type={alert.type}
+						text={alert.text}
 					/>
 			);
 		}, this);
