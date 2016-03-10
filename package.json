@@ -1,6 +1,6 @@
 {
   "name": "chartbuilder-ui",
-  "version": "1.4.4",
+  "version": "1.4.5",
   "description": "React components used in chartbuilder",
   "main": "index.js",
   "scripts": {
