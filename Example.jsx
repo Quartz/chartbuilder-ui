@@ -133,6 +133,16 @@ var ExampleParent = React.createClass({
 		this._handleEvent("buttonActive", newButtonState);
 	},
 
+	_isValidInputText: function(text) {
+
+		if (typeof text === 'string' && text.length > 0) {
+			return /pass/i.test(text);
+		} else {
+			return true;
+		}
+
+	},
+
 	render: function() {
 		var self = this;
 		var currentState = JSON.stringify(this.state, null, 2);
@@ -180,11 +190,18 @@ var ExampleParent = React.createClass({
 						buttons={exampleData.buttons}
 						value={this.state.buttonGroup}
 					/>
-					<h2>Text input</h2>
+					<h2>Text input required</h2>
 					<TextInput
-						className="cb-text-input"
+						className="cb-text-input-example"
 						onChange={this._handleEvent.bind(null, "textInput")}
 						placeholder="Input text"
+						isRequired={true}
+					/>
+					<h2>Text input</h2>
+					<TextInput
+						onChange={this._handleEvent.bind(null, "textInput")}
+						placeholder="Input text"
+						isValid={this._isValidInputText}
 					/>
 					<h2>Alert</h2>
 					<Alert

@@ -19,42 +19,69 @@ var TextInput = React.createClass({
 		onChange: PropTypes.func,
 		onFocus: PropTypes.func,
 		value: PropTypes.string,
-		placeholder: PropTypes.string
+		placeholder: PropTypes.string,
+		isRequired: PropTypes.bool,
+		isValid: PropTypes.func
 	},
 
 	getInitialState: function() {
 		return {
-			isFocused: false
+			isFocused: false,
+			valid: true
 		}
 	},
 
 	getDefaultProps: function() {
 		return {
-			type: 'text'
+			type: 'text',
+			isValid: undefined,
+			isRequired: false
 		};
 	},
+
 
 	render: function() {
 		var labelClass = ( this.props.value ||
 			this.state.isFocused ||
 			this.state.hasValue) ? 'focus' : '';
+
 		var label = this.props.placeholder ? (
 			<label className={labelClass}>
 				{this.props.placeholder}
 			</label>
 		) : null;
 
+		var classNames = ['cb-text-input'];
+		var propClassName = this.props.className;
+
+		if (typeof propClassName === 'string' && propClassName.length > 0) {
+			classNames.push(propClassName);
+		}
+
+		if (this.props.isRequired) {
+			classNames.push('required');
+		}
+
+
+		if ( !this.state.valid ) {
+			classNames.push('invalid');
+		}
+
 		return (
-			<div className={["cb-text-input", this.props.className].join(" ")}>
-			{label}
-			<input
-				ref='input'
-				type={this.props.type}
-				onBlur={this._handleInputBlur}
-				onChange={this._handleInput}
-				onFocus={this._handleInputFocus}
-				value={this.props.value}
-			/>
+			<div className={classNames.join(" ")}>
+				{label}
+				<div className="input-wrapper">
+					<input
+						ref='input'
+						type={this.props.type}
+						onBlur={this._handleInputBlur}
+						onChange={this._handleInput}
+						onFocus={this._handleInputFocus}
+						value={this.props.value}
+						isValid={this.props.isValid}
+						isRequired={this.props.isRequired}
+					/>
+				</div>
 			</div>
 		);
 	},
@@ -70,6 +97,9 @@ var TextInput = React.createClass({
 	_handleInput: function(e) {
 		var input = e.target.value;
 		this.setState({ hasValue: input });
+
+		this.setState( {valid: this._isValid(input)} );
+
 		this.props.onChange(input);
 	},
 
@@ -81,6 +111,16 @@ var TextInput = React.createClass({
 	_handleInputFocus: function(e) {
 		this.setState({ isFocused: true });
 		if (this.props.onFocus) this.props.onFocus(e);
+	},
+
+	_isValid: function(text) {
+		var isValid = true;
+
+		if ( this.props.isValid ) {
+			isValid = this.props.isValid(text);
+		};
+
+		return isValid;
 	}
 
 });
