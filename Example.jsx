@@ -201,7 +201,7 @@ var ExampleParent = React.createClass({
 					<TextInput
 						onChange={this._handleEvent.bind(null, "textInput")}
 						placeholder="Input text"
-						isValid={this._isValidInputText}
+						validate={this._isValidInputText}
 					/>
 					<h2>Alert</h2>
 					<Alert

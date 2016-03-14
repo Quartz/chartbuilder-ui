@@ -10,6 +10,7 @@
 var React = require("react");
 var ReactDOM = require("react-dom");
 var PropTypes = React.PropTypes;
+var cx = require("classnames");
 
 var TextInput = React.createClass({
 
@@ -21,24 +22,22 @@ var TextInput = React.createClass({
 		value: PropTypes.string,
 		placeholder: PropTypes.string,
 		isRequired: PropTypes.bool,
-		isValid: PropTypes.func
+		validate: PropTypes.func
 	},
 
 	getInitialState: function() {
 		return {
 			isFocused: false,
-			valid: true
+			isValid: true
 		}
 	},
 
 	getDefaultProps: function() {
 		return {
 			type: 'text',
-			isValid: undefined,
 			isRequired: false
 		};
 	},
-
 
 	render: function() {
 		var labelClass = ( this.props.value ||
@@ -62,7 +61,6 @@ var TextInput = React.createClass({
 			classNames.push('required');
 		}
 
-
 		if ( !this.state.valid ) {
 			classNames.push('invalid');
 		}
@@ -78,7 +76,6 @@ var TextInput = React.createClass({
 						onChange={this._handleInput}
 						onFocus={this._handleInputFocus}
 						value={this.props.value}
-						isValid={this.props.isValid}
 						isRequired={this.props.isRequired}
 					/>
 				</div>
@@ -96,10 +93,10 @@ var TextInput = React.createClass({
 
 	_handleInput: function(e) {
 		var input = e.target.value;
-		this.setState({ hasValue: input });
-
-		this.setState( {valid: this._isValid(input)} );
-
+    this.setState({
+      hasValue: input,
+      valid: this._isValid(input)
+    });
 		this.props.onChange(input);
 	},
 
@@ -113,14 +110,12 @@ var TextInput = React.createClass({
 		if (this.props.onFocus) this.props.onFocus(e);
 	},
 
-	_isValid: function(text) {
-		var isValid = true;
-
-		if ( this.props.isValid ) {
-			isValid = this.props.isValid(text);
-		};
-
-		return isValid;
+	_isValid: function(input) {
+		if ( this.props.validate ) {
+			return this.props.validate(input);
+    } else {
+      return true;
+    }
 	}
 
 });
