@@ -210,6 +210,7 @@ var ExampleParent = React.createClass({
 						className="cb-text-input-example"
 						onChange={this._handleEvent.bind(null, "textInputRequired")}
 						placeholder="Super long input text placeholder"
+						value={this.state.textInputRequired}
 						isRequired={true}
 						isValid={isTextInputRequiredValid}
 					/>
@@ -217,6 +218,7 @@ var ExampleParent = React.createClass({
 					<TextInput
 						onChange={this._handleEvent.bind(null, "textInputNotRequired")}
 						placeholder="Input text"
+						value={this.state.textInputNotRequired}
 						isValid={isTextInputNotRequiredValid}
 					/>
 					<h2>Alert</h2>

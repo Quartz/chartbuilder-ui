@@ -27,7 +27,7 @@ var TextInput = React.createClass({
 
 	getInitialState: function() {
 		return {
-			isFocused: false
+			isFocused : false
 		}
 	},
 
@@ -40,7 +40,7 @@ var TextInput = React.createClass({
 	},
 
 	_focusClass: function() {
-		return this.props.value || this.state.isFocused || (this.state.input && this.state.input.length > 0);
+		return (typeof this.props.value === 'string' && this.props.value.length > 0) || this.state.isFocused;
 	},
 
 	render: function() {
@@ -76,17 +76,8 @@ var TextInput = React.createClass({
 		);
 	},
 
-	blur: function() {
-		if (this.isMounted()) ReactDOM.findDOMNode('input').blur();
-	},
-
-	focus: function() {
-		if (this.isMounted()) ReactDOM.findDOMNode('input').focus();
-	},
-
 	_handleInput: function(e) {
 		var input = e.target.value;
-		this.setState({ input: input });
 		this.props.onChange(input);
 	},
 
