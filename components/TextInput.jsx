@@ -35,12 +35,13 @@ var TextInput = React.createClass({
 		return {
 			type: 'text',
 			isRequired: false,
-			isValid: true
+			isValid: true,
+			value: ''
 		};
 	},
 
 	_focusClass: function() {
-		return (typeof this.props.value === 'string' && this.props.value.length > 0) || this.state.isFocused;
+		return this.state.isFocused || this.props.value.length > 0;
 	},
 
 	render: function() {
