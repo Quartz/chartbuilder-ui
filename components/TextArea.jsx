@@ -35,7 +35,6 @@ var TextArea = React.createClass({
 			isValid: this._validateHandler(_input)
 		});
 
-
 		this.props.onChange(_input);
 	},
 
