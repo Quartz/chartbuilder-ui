@@ -60,18 +60,6 @@ var TextInput = React.createClass({
 
 		var propClassName = this.props.className;
 
-		// if (typeof propClassName === 'string' && propClassName.length > 0) {
-		// 	classNames.push(propClassName);
-		// }
-
-		// if (this.props.isRequired) {
-		// 	classNames.push('required');
-		// }
-
-		// if ( !this.state.isValid ) {
-		// 	classNames.push('invalid');
-		// }
-
 		return (
 			<div className={classNames}>
 				{label}
