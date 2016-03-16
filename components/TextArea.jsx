@@ -13,54 +13,29 @@ var TextArea = React.createClass({
 		placeholder: PropTypes.string,
 		value: PropTypes.string,
 		isRequired: PropTypes.bool,
-		validateHandler: PropTypes.func
-	},
-
-	getInitialState: function() {
-		return {
-			isValid: true
-		}
-	},
-
-	getDefaultProps: function() {
-		return {
-			isRequired: false
-		};
+		isValid: PropTypes.bool
 	},
 
 	_handleInput: function(e) {
 		var _input = e.target.value;
-
-		this.setState({
-			isValid: this._validateHandler(_input)
-		});
 
 		this.props.onChange(_input);
 	},
 
 	getDefaultProps: function() {
 		return {
-			placeholder: "Enter text here..."
+			placeholder: "Enter text here...",
+			isValid: true,
+			required: false
 		};
 	},
 
-	_validateHandler: function(input) {
-
-		if ( typeof this.props.validateHandler === 'function' ) {
-			return this.props.validateHandler(input);
-		} else {
-			return true;
-		}
-	},
-
 	render: function() {
-		var propClassName = this.props.className;
 
-		var classNames = cx({
+		var classNames = cx(this.props.className, {
 			'cb-text-area': true,
-			propClassName: (typeof propClassName === 'string' && propClassName.length > 0),
 			'required': this.props.isRequired,
-			'invalid': !this.state.isValid
+			'invalid': !this.props.isValid
 		});
 
 		var label = this.props.placeholder ? (
@@ -78,7 +53,7 @@ var TextArea = React.createClass({
 					onBlur={this.props.onBlur}
 					value={this.props.value}
 					isRequired={this.props.isRequired}
-					validateHandler={this.props.validateHandler}
+					isValid={this.props.isValid}
 				/>
 			</div>
 		);

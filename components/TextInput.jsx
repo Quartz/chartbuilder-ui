@@ -15,35 +15,36 @@ var cx = require("classnames");
 var TextInput = React.createClass({
 
 	propTypes: {
-		className: PropTypes.string,
 		onBlur: PropTypes.func,
 		onChange: PropTypes.func,
 		onFocus: PropTypes.func,
+		className: PropTypes.string,
 		value: PropTypes.string,
 		placeholder: PropTypes.string,
 		isRequired: PropTypes.bool,
-		validateHandler: PropTypes.func
+		isValid: PropTypes.bool
 	},
 
 	getInitialState: function() {
 		return {
-			isFocused: false,
-			isValid: true
+			isFocused: false
 		}
 	},
 
 	getDefaultProps: function() {
 		return {
 			type: 'text',
-			isRequired: false
+			isRequired: false,
+			isValid: true
 		};
 	},
 
-	render: function() {
+	_focusClass: function() {
+		return this.props.value || this.state.isFocused || (this.state.input && this.state.input.length > 0);
+	},
 
-		var labelClass = cx({ 'focus': (this.props.value ||
-					this.state.isFocused ||
-					this.state.hasValue) });
+	render: function() {
+		var labelClass = cx({ 'focus': this._focusClass() });
 
 		var label = this.props.placeholder ? (
 			<label className={labelClass}>
@@ -51,26 +52,11 @@ var TextInput = React.createClass({
 			</label>
 		) : null;
 
-		var classNames = cx({
+		var classNames = cx(this.props.className, {
 			'cb-text-input': true,
-			propClassName: (typeof propClassName === 'string' && propClassName.length > 0),
 			'required': this.props.isRequired,
-			'invalid': !this.state.isValid
+			'invalid': !this.props.isValid
 		});
-
-		var propClassName = this.props.className;
-
-		// if (typeof propClassName === 'string' && propClassName.length > 0) {
-		// 	classNames.push(propClassName);
-		// }
-
-		// if (this.props.isRequired) {
-		// 	classNames.push('required');
-		// }
-
-		// if ( !this.state.isValid ) {
-		// 	classNames.push('invalid');
-		// }
 
 		return (
 			<div className={classNames}>
@@ -84,7 +70,7 @@ var TextInput = React.createClass({
 						onFocus={this._handleInputFocus}
 						value={this.props.value}
 						isRequired={this.props.isRequired}
-						validateHandler={this.props.validateHandler}
+						isValid={this.props.isValid}
 					/>
 			</div>
 		);
@@ -100,10 +86,7 @@ var TextInput = React.createClass({
 
 	_handleInput: function(e) {
 		var input = e.target.value;
-		this.setState({
-			hasValue: input,
-			isValid: this._validateHandler(input)
-		});
+		this.setState({ input: input });
 		this.props.onChange(input);
 	},
 
@@ -115,15 +98,6 @@ var TextInput = React.createClass({
 	_handleInputFocus: function(e) {
 		this.setState({ isFocused: true });
 		if (this.props.onFocus) this.props.onFocus(e);
-	},
-
-	_validateHandler: function(input) {
-
-		if ( typeof this.props.validateHandler === 'function' ) {
-			return this.props.validateHandler(input);
-		} else {
-			return true;
-		}
 	}
 
 });

@@ -81,7 +81,9 @@ var ExampleParent = React.createClass({
 			textInput: "",
 			textArea: "",
 			textAreaNotRequired: "",
-			disabled: true
+			disabled: true,
+			isTextAreaValid: true,
+			isTextAreaNotRequiredValid: true
 		};
 	},
 
@@ -135,7 +137,7 @@ var ExampleParent = React.createClass({
 	},
 
 	_isValidInputText: function(text) {
-		console.log(text);
+
 		if (typeof text === 'string' && text.length > 0) {
 			return /pass/i.test(text);
 		} else {
@@ -150,6 +152,10 @@ var ExampleParent = React.createClass({
 		var inputAlert = this._validateInput();
 		var buttonOn = (this.state.buttonActive) ? "on" : "off";
 		var inputAlertGroup = this._validateInputGroup();
+		var isTextAreaNotRequiredValid = this._isValidInputText(this.state.textAreaNotRequired);
+		var isTextAreaValid = this._isValidInputText(this.state.textArea);
+		var isTextInputRequiredValid = this._isValidInputText(this.state.textInputRequired);
+		var isTextInputNotRequiredValid = this._isValidInputText(this.state.textInputNotRequired);
 		return (
 			<div className="ui-container">
 				<div className="examples">
@@ -166,14 +172,14 @@ var ExampleParent = React.createClass({
 					<TextArea
 						onChange={this._handleEvent.bind(null, "textArea")}
 						value={this.state.textArea}
-						validateHandler={this._isValidInputText}
 						isRequired={true}
+						isValid={isTextAreaValid}
 					/>
 					<h2>Text area no required</h2>
 					<TextArea
 						onChange={this._handleEvent.bind(null, "textAreaNotRequired")}
 						value={this.state.textAreaNotRequired}
-						validateHandler={this._isValidInputText}
+						isValid={isTextAreaNotRequiredValid}
 					/>
 					<h2>Dropdown</h2>
 					<Dropdown
@@ -202,15 +208,16 @@ var ExampleParent = React.createClass({
 					<h2>Text input required</h2>
 					<TextInput
 						className="cb-text-input-example"
-						onChange={this._handleEvent.bind(null, "textInput")}
+						onChange={this._handleEvent.bind(null, "textInputRequired")}
 						placeholder="Super long input text placeholder"
 						isRequired={true}
+						isValid={isTextInputRequiredValid}
 					/>
 					<h2>Text input</h2>
 					<TextInput
-						onChange={this._handleEvent.bind(null, "textInput")}
+						onChange={this._handleEvent.bind(null, "textInputNotRequired")}
 						placeholder="Input text"
-						validateHandler={this._isValidInputText}
+						isValid={isTextInputNotRequiredValid}
 					/>
 					<h2>Alert</h2>
 					<Alert
