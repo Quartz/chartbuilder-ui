@@ -9,13 +9,27 @@ var TextArea = React.createClass({
 		onFocus: PropTypes.func,
 		onBlur: PropTypes.func,
 		className: PropTypes.string,
-		defaultValue: PropTypes.string,
+
 		placeholder: PropTypes.string,
-		value: PropTypes.string
+		value: PropTypes.string,
+		isRequired: PropTypes.bool,
+		validateHandler: PropTypes.func
+	},
+
+	getInitialState: function() {
+		return {
+			isValid: true
+		}
 	},
 
 	_handleInput: function(e) {
 		var _input = e.target.value;
+
+		this.setState({
+			isValid: this._validateHandler(_input)
+		});
+
+
 		this.props.onChange(_input);
 	},
 
@@ -25,17 +39,45 @@ var TextArea = React.createClass({
 		};
 	},
 
+	_validateHandler: function(input) {
+
+		if ( typeof this.props.validateHandler === 'function' ) {
+			return this.props.validateHandler(input);
+		} else {
+			return true;
+		}
+	},
+
 	render: function() {
+		var classNames = ['cb-text-area'];
+
+		var label = this.props.placeholder ? (
+			<label>
+				{this.props.placeholder}
+			</label>
+		) : null;
+
+
+		if ( !this.state.isValid ) {
+			classNames.push('invalid');
+		}
+
+		if (this.props.isRequired) {
+			classNames.push('required');
+		}
+
 		return (
-			<textarea
-				onChange={this._handleInput}
-				onFocus={this.props.onFocus}
-				onBlur={this.props.onBlur}
-				value={this.props.value}
-				defaultValue={this.props.defaultValue}
-				placeholder={this.props.placeholder}
-				className={["cb-text-area", this.props.className].join(" ")}
-			/>
+			<div className={classNames.join(" ")}>
+				{label}
+				<textarea
+					onChange={this._handleInput}
+					onFocus={this.props.onFocus}
+					onBlur={this.props.onBlur}
+					value={this.props.value}
+
+					validateHandler={this.props.validateHandler}
+				/>
+			</div>
 		);
 	},
 });

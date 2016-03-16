@@ -203,17 +203,42 @@ body
 // --------------------------
 
 .cb-text-area
-	color $color-body-text
-	border $border
-	width 100%
-	font-size 1.1em
-	padding 15px
-	margin 0
-	min-height 10em
-	resize: none
-	&:focus
-		border $border-active
-		outline none
+	position relative
+
+	label
+		position absolute
+		top 10px
+		left 15px
+		color $color-input-placeholder
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		height: 15px;
+		width: 100%
+
+	textarea
+		color $color-body-text
+		border $border
+		width 100%
+		font-size 1.1em
+		padding 35px 15px 15px 15px
+		margin 0
+		min-height 10em
+		resize: none
+		&:focus
+			border $border-active
+			outline none
+
+	&.required
+		label:before
+			content: "*"
+			color: $color-error
+			margin-right: 5px;
+
+	&.invalid
+		textarea
+			border-color: $color-error
+
 
 // TextInput
 // --------------------------
@@ -222,22 +247,12 @@ body
 	display inline-block
 	position relative
 
-	.input-wrapper
-		position: relative
-
-	&.required
-		.input-wrapper:before
-			content: "*"
-			color: $color-error
-			position: absolute
-			left: 0
-
 	label
 		height 55px
 		font-size 1.4em
 		top 21px
 		opacity 1
-		margin-left 10px
+		left 10px
 		color $color-input-placeholder
 		position absolute
 		transform(scale(1) translate3d(0, 0, 0))
@@ -245,8 +260,20 @@ body
 		transition(all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms)
 		z-index 1
 		pointer-events none
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		width: 100%
 		&.focus
 			transform scale(0.8) translate3d(0, -11px, 0)
+
+	&.required
+		label
+			width 90%
+		label:before
+			content: "*"
+			color: $color-error
+			margin-right: 5px;
 
 	input
 		height 55px

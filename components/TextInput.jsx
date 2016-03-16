@@ -22,7 +22,7 @@ var TextInput = React.createClass({
 		value: PropTypes.string,
 		placeholder: PropTypes.string,
 		isRequired: PropTypes.bool,
-		validate: PropTypes.func
+		validateHandler: PropTypes.func
 	},
 
 	getInitialState: function() {
@@ -61,14 +61,14 @@ var TextInput = React.createClass({
 			classNames.push('required');
 		}
 
-		if ( !this.state.valid ) {
+		if ( !this.state.isValid ) {
 			classNames.push('invalid');
 		}
 
 		return (
 			<div className={classNames.join(" ")}>
 				{label}
-				<div className="input-wrapper">
+
 					<input
 						ref='input'
 						type={this.props.type}
@@ -77,8 +77,8 @@ var TextInput = React.createClass({
 						onFocus={this._handleInputFocus}
 						value={this.props.value}
 						isRequired={this.props.isRequired}
+						validateHandler={this.props.validateHandler}
 					/>
-				</div>
 			</div>
 		);
 	},
@@ -93,10 +93,10 @@ var TextInput = React.createClass({
 
 	_handleInput: function(e) {
 		var input = e.target.value;
-    this.setState({
-      hasValue: input,
-      valid: this._isValid(input)
-    });
+		this.setState({
+			hasValue: input,
+			isValid: this._validateHandler(input)
+		});
 		this.props.onChange(input);
 	},
 
@@ -110,12 +110,13 @@ var TextInput = React.createClass({
 		if (this.props.onFocus) this.props.onFocus(e);
 	},
 
-	_isValid: function(input) {
-		if ( this.props.validate ) {
-			return this.props.validate(input);
-    } else {
-      return true;
-    }
+	_validateHandler: function(input) {
+
+		if ( typeof this.props.validateHandler === 'function' ) {
+			return this.props.validateHandler(input);
+		} else {
+			return true;
+		}
 	}
 
 });

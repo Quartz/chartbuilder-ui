@@ -134,7 +134,7 @@ var ExampleParent = React.createClass({
 	},
 
 	_isValidInputText: function(text) {
-
+		console.log(text);
 		if (typeof text === 'string' && text.length > 0) {
 			return /pass/i.test(text);
 		} else {
@@ -165,6 +165,7 @@ var ExampleParent = React.createClass({
 					<TextArea
 						onChange={this._handleEvent.bind(null, "textArea")}
 						value={this.state.textArea}
+						validateHandler={this._isValidInputText}
 					/>
 					<h2>Dropdown</h2>
 					<Dropdown
@@ -194,14 +195,14 @@ var ExampleParent = React.createClass({
 					<TextInput
 						className="cb-text-input-example"
 						onChange={this._handleEvent.bind(null, "textInput")}
-						placeholder="Input text"
+						placeholder="Super long input text placeholder"
 						isRequired={true}
 					/>
 					<h2>Text input</h2>
 					<TextInput
 						onChange={this._handleEvent.bind(null, "textInput")}
 						placeholder="Input text"
-						validate={this._isValidInputText}
+						validateHandler={this._isValidInputText}
 					/>
 					<h2>Alert</h2>
 					<Alert
