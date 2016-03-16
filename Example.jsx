@@ -135,7 +135,7 @@ var ExampleParent = React.createClass({
 	},
 
 	_isValidInputText: function(text) {
-		console.log(text);
+    console.log(text);
 		if (typeof text === 'string' && text.length > 0) {
 			return /pass/i.test(text);
 		} else {
@@ -145,6 +145,7 @@ var ExampleParent = React.createClass({
 	},
 
 	render: function() {
+    var textInputValid = this._isValidInputText(this.state.textInput);
 		var self = this;
 		var currentState = JSON.stringify(this.state, null, 2);
 		var inputAlert = this._validateInput();
@@ -205,12 +206,13 @@ var ExampleParent = React.createClass({
 						onChange={this._handleEvent.bind(null, "textInput")}
 						placeholder="Super long input text placeholder"
 						isRequired={true}
+						isValid={textInputValid}
 					/>
 					<h2>Text input</h2>
 					<TextInput
 						onChange={this._handleEvent.bind(null, "textInput")}
 						placeholder="Input text"
-						validateHandler={this._isValidInputText}
+						isValid={textInputValid}
 					/>
 					<h2>Alert</h2>
 					<Alert

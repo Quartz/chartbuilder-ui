@@ -22,13 +22,13 @@ var TextInput = React.createClass({
 		value: PropTypes.string,
 		placeholder: PropTypes.string,
 		isRequired: PropTypes.bool,
-		validateHandler: PropTypes.func
+    //validateHandler: PropTypes.func,
+    //isValid:
 	},
 
 	getInitialState: function() {
 		return {
-			isFocused: false,
-			isValid: true
+			isFocused: false
 		}
 	},
 
@@ -39,59 +39,46 @@ var TextInput = React.createClass({
 		};
 	},
 
-	render: function() {
+  _focusClass: function() {
+    return ( this.props.value || this.state.isFocused );
+  },
 
-		var labelClass = cx({ 'focus': (this.props.value ||
-					this.state.isFocused ||
-					this.state.hasValue) });
+	render: function() {
+    var labelClassName = cx({ 'focus': this._focusClass() });
 
 		var label = this.props.placeholder ? (
-			<label className={labelClass}>
+			<label className={labelClassName}>
 				{this.props.placeholder}
 			</label>
 		) : null;
 
-		var classNames = cx({
-			'cb-text-input': true,
-			propClassName: (typeof propClassName === 'string' && propClassName.length > 0),
-			'required': this.props.isRequired,
-			'invalid': !this.state.isValid
-		});
-
 		var propClassName = this.props.className;
 
-		return (
-			<div className={classNames}>
-				{label}
+		var divClassName = cx( propClassName, {
+			'cb-text-input': true,
+			'required': this.props.isRequired,
+			'invalid': !this.props.isValid
+		});
 
-					<input
-						ref='input'
-						type={this.props.type}
-						onBlur={this._handleInputBlur}
-						onChange={this._handleInput}
-						onFocus={this._handleInputFocus}
-						value={this.props.value}
-						isRequired={this.props.isRequired}
-						validateHandler={this.props.validateHandler}
-					/>
+		return (
+			<div className={divClassName}>
+				{label}
+				<input
+					ref='input'
+					type={this.props.type}
+					onBlur={this._handleInputBlur}
+					onChange={this._handleInput}
+					onFocus={this._handleInputFocus}
+					value={this.props.value}
+					isRequired={this.props.isRequired}
+				/>
 			</div>
 		);
 	},
 
-	blur: function() {
-		if (this.isMounted()) ReactDOM.findDOMNode('input').blur();
-	},
-
-	focus: function() {
-		if (this.isMounted()) ReactDOM.findDOMNode('input').focus();
-	},
-
 	_handleInput: function(e) {
 		var input = e.target.value;
-		this.setState({
-			hasValue: input,
-			isValid: this._validateHandler(input)
-		});
+		//this.setState({ isValid: this._validateHandler(input) });
 		this.props.onChange(input);
 	},
 
@@ -105,14 +92,13 @@ var TextInput = React.createClass({
 		if (this.props.onFocus) this.props.onFocus(e);
 	},
 
-	_validateHandler: function(input) {
-
-		if ( typeof this.props.validateHandler === 'function' ) {
-			return this.props.validateHandler(input);
-		} else {
-			return true;
-		}
-	}
+	//_validateHandler: function(input) {
+		//if ( typeof this.props.validateHandler === 'function' ) {
+			//return this.props.validateHandler(input);
+		//} else {
+			//return true;
+		//}
+	//}
 
 });
 

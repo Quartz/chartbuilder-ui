@@ -31,9 +31,9 @@ var TextArea = React.createClass({
 	_handleInput: function(e) {
 		var _input = e.target.value;
 
-		this.setState({
-			isValid: this._validateHandler(_input)
-		});
+		//this.setState({
+			//isValid: this._validateHandler(_input)
+		//});
 
 		this.props.onChange(_input);
 	},
@@ -55,12 +55,13 @@ var TextArea = React.createClass({
 
 	render: function() {
 		var propClassName = this.props.className;
+    console.log(this.props.isValid)
 
 		var classNames = cx({
 			'cb-text-area': true,
 			propClassName: (typeof propClassName === 'string' && propClassName.length > 0),
 			'required': this.props.isRequired,
-			'invalid': !this.state.isValid
+			'invalid': !this.props.isValid
 		});
 
 		var label = this.props.placeholder ? (
