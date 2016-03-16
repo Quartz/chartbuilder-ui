@@ -40,9 +40,10 @@ var TextInput = React.createClass({
 	},
 
 	render: function() {
-		var labelClass = ( this.props.value ||
-			this.state.isFocused ||
-			this.state.hasValue) ? 'focus' : '';
+
+		var labelClass = cx({ 'focus': (this.props.value ||
+					this.state.isFocused ||
+					this.state.hasValue) });
 
 		var label = this.props.placeholder ? (
 			<label className={labelClass}>
@@ -50,23 +51,29 @@ var TextInput = React.createClass({
 			</label>
 		) : null;
 
-		var classNames = ['cb-text-input'];
+		var classNames = cx({
+			'cb-text-input': true,
+			propClassName: (typeof propClassName === 'string' && propClassName.length > 0),
+			'required': this.props.isRequired,
+			'invalid': !this.state.isValid
+		});
+
 		var propClassName = this.props.className;
 
-		if (typeof propClassName === 'string' && propClassName.length > 0) {
-			classNames.push(propClassName);
-		}
+		// if (typeof propClassName === 'string' && propClassName.length > 0) {
+		// 	classNames.push(propClassName);
+		// }
 
-		if (this.props.isRequired) {
-			classNames.push('required');
-		}
+		// if (this.props.isRequired) {
+		// 	classNames.push('required');
+		// }
 
-		if ( !this.state.isValid ) {
-			classNames.push('invalid');
-		}
+		// if ( !this.state.isValid ) {
+		// 	classNames.push('invalid');
+		// }
 
 		return (
-			<div className={classNames.join(" ")}>
+			<div className={classNames}>
 				{label}
 
 					<input

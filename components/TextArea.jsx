@@ -2,6 +2,7 @@
 
 var React = require("react");
 var PropTypes = React.PropTypes;
+var cx = require("classnames");
 
 var TextArea = React.createClass({
 	propTypes: {
@@ -9,7 +10,6 @@ var TextArea = React.createClass({
 		onFocus: PropTypes.func,
 		onBlur: PropTypes.func,
 		className: PropTypes.string,
-
 		placeholder: PropTypes.string,
 		value: PropTypes.string,
 		isRequired: PropTypes.bool,
@@ -20,6 +20,12 @@ var TextArea = React.createClass({
 		return {
 			isValid: true
 		}
+	},
+
+	getDefaultProps: function() {
+		return {
+			isRequired: false
+		};
 	},
 
 	_handleInput: function(e) {
@@ -49,7 +55,14 @@ var TextArea = React.createClass({
 	},
 
 	render: function() {
-		var classNames = ['cb-text-area'];
+		var propClassName = this.props.className;
+
+		var classNames = cx({
+			'cb-text-area': true,
+			propClassName: (typeof propClassName === 'string' && propClassName.length > 0),
+			'required': this.props.isRequired,
+			'invalid': !this.state.isValid
+		});
 
 		var label = this.props.placeholder ? (
 			<label>
@@ -57,24 +70,15 @@ var TextArea = React.createClass({
 			</label>
 		) : null;
 
-
-		if ( !this.state.isValid ) {
-			classNames.push('invalid');
-		}
-
-		if (this.props.isRequired) {
-			classNames.push('required');
-		}
-
 		return (
-			<div className={classNames.join(" ")}>
+			<div className={classNames}>
 				{label}
 				<textarea
 					onChange={this._handleInput}
 					onFocus={this.props.onFocus}
 					onBlur={this.props.onBlur}
 					value={this.props.value}
-
+					isRequired={this.props.isRequired}
 					validateHandler={this.props.validateHandler}
 				/>
 			</div>

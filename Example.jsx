@@ -80,6 +80,7 @@ var ExampleParent = React.createClass({
 			shareButton: 0,
 			textInput: "",
 			textArea: "",
+			textAreaNotRequired: "",
 			disabled: true
 		};
 	},
@@ -165,6 +166,13 @@ var ExampleParent = React.createClass({
 					<TextArea
 						onChange={this._handleEvent.bind(null, "textArea")}
 						value={this.state.textArea}
+						validateHandler={this._isValidInputText}
+						isRequired={true}
+					/>
+					<h2>Text area no required</h2>
+					<TextArea
+						onChange={this._handleEvent.bind(null, "textAreaNotRequired")}
+						value={this.state.textAreaNotRequired}
 						validateHandler={this._isValidInputText}
 					/>
 					<h2>Dropdown</h2>
