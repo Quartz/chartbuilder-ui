@@ -12,6 +12,7 @@
     "start": "http-server ./example",
     "build-example": "npm run example-html && browserify example.js -o ./example/main.js && stylus ./styl/example.styl --use ./node_modules/nib/lib/nib --out ./example/styles.css",
     "build": "npm run example-html && npm run build-css",
+    "version": "npm run build && git add -A dist",
     "gh-pages": "npm run build-example && git subtree push --prefix example origin gh-pages",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
