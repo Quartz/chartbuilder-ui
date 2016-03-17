@@ -205,8 +205,7 @@ var ExampleParent = React.createClass({
 						buttons={exampleData.buttons}
 						value={this.state.buttonGroup}
 					/>
-
-					<h2>Text inputm type in pass to remove the error state</h2>
+					<h2>Text input. Type 'pass' to remove the error state</h2>
 					<TextInput
 						onChange={this._handleEvent.bind(null, "textInputNotRequired")}
 						placeholder="Input text"
@@ -218,7 +217,7 @@ var ExampleParent = React.createClass({
 						type={inputAlert.type}
 						text={inputAlert.text}
 					/>
-					<h2>Text input required, type in error, warning, or bunch to show different alert group states</h2>
+					<h2>Required text input. Type 'error', 'warning', or 'bunch' to show different alert group states</h2>
 					<TextInput
 						className="cb-text-input-example"
 						onChange={this._handleEvent.bind(null, "textInputRequired")}
@@ -230,7 +229,6 @@ var ExampleParent = React.createClass({
 					<AlertGroup
 						alerts={inputAlertGroup}
 					/>
-
 					<h2>Labelled tangle</h2>
 					<LabelledTangle
 						className="cb-labelled-tangle"
