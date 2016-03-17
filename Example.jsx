@@ -95,7 +95,7 @@ var ExampleParent = React.createClass({
 	},
 
 	_validateInput: function() {
-		var input = this.state.textInput;
+		var input = typeof this.state.textInputNotRequired === 'string' ? this.state.textInputNotRequired : '';
 		if ( input.length === 0 ) {
 			return exampleData.inputAlerts.empty;
 		} else if ( input.length < 5 ) {
@@ -106,7 +106,7 @@ var ExampleParent = React.createClass({
 	},
 
 	_validateInputGroup: function() {
-		var input = this.state.textInput;
+		var input = this.state.textInputRequired;
 		var alertGroup;
 
 		switch(input) {
@@ -205,16 +205,8 @@ var ExampleParent = React.createClass({
 						buttons={exampleData.buttons}
 						value={this.state.buttonGroup}
 					/>
-					<h2>Text input required</h2>
-					<TextInput
-						className="cb-text-input-example"
-						onChange={this._handleEvent.bind(null, "textInputRequired")}
-						placeholder="Super long input text placeholder"
-						value={this.state.textInputRequired}
-						isRequired={true}
-						isValid={isTextInputRequiredValid}
-					/>
-					<h2>Text input</h2>
+
+					<h2>Text inputm type in pass to remove the error state</h2>
 					<TextInput
 						onChange={this._handleEvent.bind(null, "textInputNotRequired")}
 						placeholder="Input text"
@@ -226,7 +218,14 @@ var ExampleParent = React.createClass({
 						type={inputAlert.type}
 						text={inputAlert.text}
 					/>
-
+					<h2>Text input required, type in error, warning, or bunch to show different alert group states</h2>
+					<TextInput
+						className="cb-text-input-example"
+						onChange={this._handleEvent.bind(null, "textInputRequired")}
+						placeholder="Super long input text placeholder"
+						value={this.state.textInputRequired}
+						isRequired={true}
+					/>
 					<h2>AlertGroup</h2>
 					<AlertGroup
 						alerts={inputAlertGroup}

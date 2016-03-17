@@ -1,4 +1,13 @@
-// A textarea component
+/*
+ * <TextArea
+ *	onInput=required func to handle input
+ *	placeholder=string to label input
+ *	className=string
+ *	isValid=bool set false to add invalid class on the parent element
+ *	isRequired=bool set true to add isReuired on the parent element
+ * >
+ */
+
 
 var React = require("react");
 var PropTypes = React.PropTypes;
