@@ -21,13 +21,13 @@ var TextArea = React.createClass({
 		className: PropTypes.string,
 		placeholder: PropTypes.string,
 		value: PropTypes.string,
+		defaultValue: PropTypes.string,
 		isRequired: PropTypes.bool,
 		isValid: PropTypes.bool
 	},
 
 	_handleInput: function(e) {
 		var _input = e.target.value;
-
 		this.props.onChange(_input);
 	},
 
@@ -61,6 +61,7 @@ var TextArea = React.createClass({
 					onFocus={this.props.onFocus}
 					onBlur={this.props.onBlur}
 					value={this.props.value}
+					defaultValue={this.props.defaultValue}
 					isRequired={this.props.isRequired}
 					isValid={this.props.isValid}
 				/>
