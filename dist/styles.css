@@ -216,7 +216,7 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
   height: 15px;
-  width: 100%;
+  width: 95%;
 }
 .cb-text-area textarea {
   color: #333;
