@@ -12,7 +12,7 @@
     "start": "http-server ./example",
     "build-example": "npm run example-html && browserify -t reactify example.js -o ./example/main.js && stylus ./styl/example.styl --use ./node_modules/nib/lib/nib --out ./example/styles.css",
     "build": "npm run example-html && npm run build-css",
-    "dist": "npm run build-css && browserify -t reactify --exclude react --exclude react-dom index.js -o ./dist/chartbuilder-ui.js",
+    "dist": "npm run build-css && browserify -t reactify --exclude react --exclude react-dom --standalone index.js -o ./dist/chartbuilder-ui.js",
     "version": "npm run build && git add -A dist",
     "gh-pages": "npm run build-example && git subtree push --prefix example origin gh-pages",
     "test": "echo \"Error: no test specified\" && exit 1"
