@@ -40,7 +40,7 @@
   "dependencies": {
     "classnames": "^2.2.1",
     "react-addons-pure-render-mixin": "^0.14.7",
-    "react-tangle": "git://github.com/Quartz/react-tangle.git#mb-pages"
+    "react-tangle": "git://github.com/Quartz/react-tangle.git#distribute-nonjsx"
   },
   "devDependencies": {
     "babel-cli": "^6.6.5",
