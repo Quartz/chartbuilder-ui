@@ -7,7 +7,7 @@
     "example-html": "mkdir -p ./example && cp ./example-src/index.html ./example",
     "watch-css": "stylus -w ./styl/example.styl --use ./node_modules/nib/lib/nib --out ./example/styles.css",
     "build-css": "stylus ./styl/chartbuilder-ui.styl --out ./dist/styles.css",
-    "watch-js": "watchify -v -d -t reactify example.js -o ./example/main.js",
+    "watch-js": "watchify -v -d -t reactify --extension=.jsx example.js -o ./example/main.js",
     "dev": "npm run example-html && npm run watch-css & npm run watch-js",
     "start": "http-server ./example",
     "build-example": "npm run example-html && browserify -t reactify example.js -o ./example/main.js && stylus ./styl/example.styl --use ./node_modules/nib/lib/nib --out ./example/styles.css",

@@ -2,16 +2,16 @@
 
 var React = require("react");
 
-var Alert = require("./components/Alert.jsx");
-var AlertGroup = require("./components/AlertGroup.jsx");
-var Button = require("./components/Button.jsx");
-var ButtonGroup = require("./components/ButtonGroup.jsx");
-var ColorPicker = require("./components/ColorPicker.jsx");
-var Dropdown = require("./components/Dropdown.jsx");
-var TextArea = require("./components/TextArea.jsx");
-var TextInput = require("./components/TextInput.jsx");
-var LabelledTangle = require("./components/LabelledTangle.jsx");
-var Toggle = require("./components/Toggle.jsx");
+var Alert = require("./components/Alert");
+var AlertGroup = require("./components/AlertGroup");
+var Button = require("./components/Button");
+var ButtonGroup = require("./components/ButtonGroup");
+var ColorPicker = require("./components/ColorPicker");
+var Dropdown = require("./components/Dropdown");
+var TextArea = require("./components/TextArea");
+var TextInput = require("./components/TextInput");
+var LabelledTangle = require("./components/LabelledTangle");
+var Toggle = require("./components/Toggle");
 
 var exampleData = {
 	buttons: [
