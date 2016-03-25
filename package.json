@@ -44,7 +44,7 @@
     "react-addons-perf": "^0.14.7",
     "react-addons-pure-render-mixin": "^0.14.7",
     "react-dom": "^0.14.7",
-    "react-tangle": "https://github.com/Quartz/react-tangle.git"
+    "react-tangle": "git://github.com/Quartz/react-tangle.git#mb-pages"
   },
   "devDependencies": {
     "browserify": "^8.1.3",
