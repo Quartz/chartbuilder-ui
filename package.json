@@ -39,8 +39,7 @@
   "license": "ISC",
   "dependencies": {
     "classnames": "^2.2.1",
-    "react-addons-pure-render-mixin": "^0.14.7",
-    "react-tangle": "https://github.com/cutting-room-floor/react-tangle"
+    "react-addons-pure-render-mixin": "^0.14.7"
   },
   "devDependencies": {
     "babel-cli": "^6.6.5",
