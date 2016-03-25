@@ -2,16 +2,17 @@
   "name": "chartbuilder-ui",
   "version": "1.5.4",
   "description": "React components used in chartbuilder",
-  "main": "index.js",
+  "main": "dist/chartbuilder-ui.js",
   "scripts": {
     "example-html": "mkdir -p ./example && cp ./example-src/index.html ./example",
     "watch-css": "stylus -w ./styl/example.styl --use ./node_modules/nib/lib/nib --out ./example/styles.css",
     "build-css": "stylus ./styl/chartbuilder-ui.styl --out ./dist/styles.css",
-    "watch-js": "watchify -v -d example.js -o ./example/main.js",
+    "watch-js": "watchify -v -d -t reactify example.js -o ./example/main.js",
     "dev": "npm run example-html && npm run watch-css & npm run watch-js",
     "start": "http-server ./example",
-    "build-example": "npm run example-html && browserify example.js -o ./example/main.js && stylus ./styl/example.styl --use ./node_modules/nib/lib/nib --out ./example/styles.css",
+    "build-example": "npm run example-html && browserify -t reactify example.js -o ./example/main.js && stylus ./styl/example.styl --use ./node_modules/nib/lib/nib --out ./example/styles.css",
     "build": "npm run example-html && npm run build-css",
+    "dist": "npm run build-css && browserify -t reactify --exclude react --exclude react-dom index.js -o ./dist/chartbuilder-ui.js",
     "version": "npm run build && git add -A dist",
     "gh-pages": "npm run build-example && git subtree push --prefix example origin gh-pages",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,11 +20,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/Quartz/chartbuilder-ui"
-  },
-  "browserify": {
-    "transform": [
-      "reactify"
-    ]
   },
   "keywords": [
     "React",
@@ -41,9 +37,7 @@
   "license": "ISC",
   "dependencies": {
     "classnames": "^2.2.1",
-    "react-addons-perf": "^0.14.7",
     "react-addons-pure-render-mixin": "^0.14.7",
-    "react-dom": "^0.14.7",
     "react-tangle": "https://github.com/Quartz/react-tangle.git#latest-react"
   },
   "devDependencies": {
@@ -51,10 +45,10 @@
     "http-server": "^0.8.0",
     "nib": "^1.1.0",
     "reactify": "^1.0.0",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7",
+    "react-addons-perf": "^0.14.7",
     "stylus": "^0.50.0",
     "watchify": "^2.3.0"
-  },
-  "peerDependencies": {
-    "react": "^0.14.7"
   }
 }
