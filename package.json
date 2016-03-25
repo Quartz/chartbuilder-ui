@@ -13,7 +13,7 @@
     "build-example": "npm run example-html && browserify example.js -o ./example/main.js && stylus ./styl/example.styl --use ./node_modules/nib/lib/nib --out ./example/styles.css",
     "build": "npm run example-html && npm run build-css",
     "version": "npm run build && git add -A dist",
-    "gh-pages": "npm run build-example && git subtree push --prefix example origin gh-pages",
+    "gh-pages": "git push origin :gh-pages && npm run build-example && git subtree push --prefix example origin gh-pages",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -44,7 +44,7 @@
     "react-addons-perf": "^0.14.7",
     "react-addons-pure-render-mixin": "^0.14.7",
     "react-dom": "^0.14.7",
-    "react-tangle": "https://github.com/Quartz/react-tangle.git#latest-react"
+    "react-tangle": "https://github.com/Quartz/react-tangle.git"
   },
   "devDependencies": {
     "browserify": "^8.1.3",
