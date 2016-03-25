@@ -4,7 +4,7 @@ var React = require("react");
 var cx = require("classnames");
 var PropTypes = React.PropTypes;
 
-var Button = require('./Button.jsx');
+var Button = require('./Button');
 
 var ButtonGroup = React.createClass({
 

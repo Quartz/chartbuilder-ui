@@ -1,12 +1,12 @@
 module.exports = {
-  Alert: require("./components/Alert.jsx"),
-  AlertGroup: require("./components/AlertGroup.jsx"),
-  Button: require("./components/Button.jsx"),
-  ButtonGroup: require("./components/ButtonGroup.jsx"),
-  ColorPicker: require("./components/ColorPicker.jsx"),
-  Dropdown: require("./components/Dropdown.jsx"),
-  TextArea: require("./components/TextArea.jsx"),
-  TextInput: require("./components/TextInput.jsx"),
-  LabelledTangle: require("./components/LabelledTangle.jsx"),
-  Toggle: require("./components/Toggle.jsx")
+  Alert: require("./components/Alert"),
+  AlertGroup: require("./components/AlertGroup"),
+  Button: require("./components/Button"),
+  ButtonGroup: require("./components/ButtonGroup"),
+  ColorPicker: require("./components/ColorPicker"),
+  Dropdown: require("./components/Dropdown"),
+  TextArea: require("./components/TextArea"),
+  TextInput: require("./components/TextInput"),
+  LabelledTangle: require("./components/LabelledTangle"),
+  Toggle: require("./components/Toggle")
 };

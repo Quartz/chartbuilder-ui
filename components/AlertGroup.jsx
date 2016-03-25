@@ -9,7 +9,7 @@
 var React = require("react");
 var PropTypes = React.PropTypes;
 
-var Alert = require('./Alert.jsx');
+var Alert = require('./Alert');
 
 var AlertGroup = React.createClass({
 

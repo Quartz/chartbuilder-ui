@@ -12,7 +12,9 @@
     "start": "http-server ./example",
     "build-example": "npm run example-html && browserify -t reactify example.js -o ./example/main.js && stylus ./styl/example.styl --use ./node_modules/nib/lib/nib --out ./example/styles.css",
     "build": "npm run example-html && npm run build-css",
-    "dist": "npm run build-css && browserify -t reactify --exclude react --exclude react-dom --standalone index.js -o ./dist/chartbuilder-ui.js",
+    "de-jsx": "babel components/*.jsx --out-dir ./dist --presets react",
+    "dist-js": "npm run de-jsx && cp index.js ./dist/chartbuilder-ui.js",
+    "dist": "npm run build-css && npm run dist-js",
     "version": "npm run build && git add -A dist",
     "gh-pages": "npm run build-example && git subtree push --prefix example origin gh-pages",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -38,16 +40,20 @@
   "dependencies": {
     "classnames": "^2.2.1",
     "react-addons-pure-render-mixin": "^0.14.7",
-    "react-tangle": "https://github.com/Quartz/react-tangle.git#latest-react"
+    "react-tangle": "https://github.com/cutting-room-floor/react-tangle"
   },
   "devDependencies": {
-    "browserify": "^8.1.3",
+    "babel-cli": "^6.6.5",
+    "babel-core": "^6.7.4",
+    "babel-preset-react": "^6.5.0",
+    "browserify": "^13.0.0",
+    "derequire": "^2.0.3",
     "http-server": "^0.8.0",
     "nib": "^1.1.0",
-    "reactify": "^1.0.0",
     "react": "^0.14.7",
-    "react-dom": "^0.14.7",
     "react-addons-perf": "^0.14.7",
+    "react-dom": "^0.14.7",
+    "reactify": "^1.0.0",
     "stylus": "^0.50.0",
     "watchify": "^2.3.0"
   }
