@@ -38,10 +38,40 @@ body
 // --------------------------
 
 	.cb-alert-group
+		overflow: hidden
+
 		.cb-alert
 			margin-bottom: 5px
 			&:last-child
 				margin-bottom: 0
+
+		.cb-alert-enter
+			opacity: 0;
+			transform: translate(0, -100%);
+			transform: translate3d(0, -100%, 0);
+
+			&.cb-alert-enter-active
+				opacity: 1;
+				transform: translate(0, 0);
+				transform: translate3d(0, 0, 0);
+				transition-property: transform, opacity;
+				transition-duration: 300ms;
+				transition-timing-function: cubic-bezier(0.175, 0.665, 0.32, 1), linear;
+
+		.cb-alert-leave
+			opacity: 1;
+			transform: translate(0, 100%);
+			transform: translate3d(0, 100%, 0);
+			transition-property: transform, opacity;
+			transition-duration: 300ms;
+			transition-timing-function: cubic-bezier(0.175, 0.665, 0.32, 1), linear;
+
+			&.cb-alert-leave-active
+				opacity: 0;
+				transform: translate(0, -100%);
+				transform: translate3d(0, -100%, 0);
+
+
 
 // Button
 // --------------------------
