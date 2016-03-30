@@ -8,6 +8,7 @@
 
 var React = require("react");
 var PropTypes = React.PropTypes;
+var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
 var Alert = require('./Alert.jsx');
 
@@ -35,7 +36,9 @@ var AlertGroup = React.createClass({
 
 		return (
 			<div className={["cb-alert-group", this.props.className].join(" ")} >
+				<ReactCSSTransitionGroup transitionName="cb-alert" component="div" className="animation-container" transitionEnterTimeout={600} transitionLeaveTimeout={600}>
 					{alerts}
+				</ReactCSSTransitionGroup>
 			</div>
 		);
 	}
