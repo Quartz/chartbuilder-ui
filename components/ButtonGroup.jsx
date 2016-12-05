@@ -35,6 +35,7 @@ var ButtonGroup = React.createClass({
 						onClick={this._handleClick}
 						text={button.content || "" + button.value}
 						className="button-group-button"
+						disabled={!!this.props.disabled}
 					/>
 			);
 		}, this);
