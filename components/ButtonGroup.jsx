@@ -13,7 +13,8 @@ var ButtonGroup = React.createClass({
 		buttons: React.PropTypes.arrayOf(React.PropTypes.shape({
 			value: React.PropTypes.any.isRequired,
 			content: React.PropTypes.node,
-			title: React.PropTypes.string
+			title: React.PropTypes.string,
+			disabled: React.PropTypes.bool
 			})).isRequired,
 		onClick: React.PropTypes.func.isRequired,
 		className: React.PropTypes.string
