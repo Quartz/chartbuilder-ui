@@ -1,6 +1,6 @@
 {
   "name": "chartbuilder-ui",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "React components used in chartbuilder",
   "main": "index.js",
   "scripts": {
@@ -22,7 +22,14 @@
   },
   "browserify": {
     "transform": [
-      [ "babelify", { "presets": ["react"] } ]
+      [
+        "babelify",
+        {
+          "presets": [
+            "react"
+          ]
+        }
+      ]
     ]
   },
   "keywords": [
