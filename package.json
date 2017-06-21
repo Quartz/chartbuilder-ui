@@ -1,6 +1,6 @@
 {
   "name": "chartbuilder-ui",
-  "version": "1.7.0",
+  "version": "2.0.0",
   "description": "React components used in chartbuilder",
   "main": "index.js",
   "scripts": {
@@ -48,10 +48,11 @@
   "license": "ISC",
   "dependencies": {
     "classnames": "^2.2.1",
-    "react-addons-css-transition-group": "^0.14.8",
-    "react-addons-perf": "^0.14.7",
-    "react-addons-pure-render-mixin": "^0.14.7",
-    "react-dom": "^0.14.7",
+    "react": "^15.6.1",
+    "react-addons-css-transition-group": "^15.5.4",
+    "react-addons-perf": "^15.4.2",
+    "react-addons-pure-render-mixin": "^15.5.4",
+    "react-dom": "^15.5.4",
     "react-tangle": "git://github.com/Quartz/react-tangle.git#mb-pages"
   },
   "devDependencies": {
@@ -64,6 +65,6 @@
     "watchify": "^2.3.0"
   },
   "peerDependencies": {
-    "react": "^0.14.7"
+    "react": "^15.5.4"
   }
 }
