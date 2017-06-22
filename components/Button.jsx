@@ -8,7 +8,7 @@
 
 var React = require("react");
 var cx = require("classnames");
-var PropTypes = React.PropTypes;
+var PropTypes = require('prop-types');
 var PureRenderMixin = require("react-addons-pure-render-mixin");
 
 var Button = React.createClass({

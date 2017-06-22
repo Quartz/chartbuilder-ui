@@ -2,21 +2,21 @@
 
 var React = require("react");
 var cx = require("classnames");
-var PropTypes = React.PropTypes;
+var PropTypes = require('prop-types');
 
 var Button = require('./Button.jsx');
 
 var ButtonGroup = React.createClass({
 
 	propTypes: {
-		value: React.PropTypes.any.isRequired,
-		buttons: React.PropTypes.arrayOf(React.PropTypes.shape({
-			value: React.PropTypes.any.isRequired,
-			content: React.PropTypes.node,
-			title: React.PropTypes.string
+		value: PropTypes.any.isRequired,
+		buttons: PropTypes.arrayOf(PropTypes.shape({
+			value: PropTypes.any.isRequired,
+			content: PropTypes.node,
+			title: PropTypes.string
 			})).isRequired,
-		onClick: React.PropTypes.func.isRequired,
-		className: React.PropTypes.string
+		onClick: PropTypes.func.isRequired,
+		className: PropTypes.string
 	},
 
 	_handleClick: function(e) {

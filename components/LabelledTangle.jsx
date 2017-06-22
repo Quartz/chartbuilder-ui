@@ -1,7 +1,7 @@
 // wrapper around react-tangle, with a label
 
 var React = require("react");
-var PropTypes = React.PropTypes;
+var PropTypes = require('prop-types');
 var TangleText = require("react-tangle");
 
 var LabelledTangle = React.createClass({

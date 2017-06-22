@@ -10,7 +10,7 @@
 
 var React = require("react");
 var ReactDOM = require("react-dom");
-var PropTypes = React.PropTypes;
+var PropTypes = require('prop-types');
 var cx = require("classnames");
 
 var TextInput = React.createClass({

@@ -1,5 +1,5 @@
 var React = require("react");
-var PropTypes = React.PropTypes;
+var PropTypes = require('prop-types');
 var PureRenderMixin = require("react-addons-pure-render-mixin");
 
 var Dropdown = React.createClass({

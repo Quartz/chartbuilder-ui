@@ -10,7 +10,7 @@
 
 
 var React = require("react");
-var PropTypes = React.PropTypes;
+var PropTypes = require('prop-types');
 var cx = require("classnames");
 
 var TextArea = React.createClass({

@@ -7,7 +7,7 @@
  */
 
 var React = require("react");
-var PropTypes = React.PropTypes;
+var PropTypes = require('prop-types');
 var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
 var Alert = require('./Alert.jsx');
@@ -15,7 +15,7 @@ var Alert = require('./Alert.jsx');
 var AlertGroup = React.createClass({
 
 	propTypes: {
-		alerts: PropTypes.arrayOf(React.PropTypes.shape({
+		alerts: PropTypes.arrayOf(PropTypes.shape({
 			type: PropTypes.string,
 			text: PropTypes.string
 		})).isRequired,
